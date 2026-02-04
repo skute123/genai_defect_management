@@ -1,0 +1,85 @@
+2026-01-28 18:37:48,104 INFO root: Deleted old log folder: logs\2025-11-06
+2026-01-28 18:37:48,106 INFO root: Logger initialized, writing to logs\2026-01-28\app.log
+2026-01-28 18:37:48,111 INFO root: Deleted old log folder: logs\2025-11-06
+2026-01-28 18:37:48,113 INFO root: Logger initialized, writing to logs\2026-01-28\app.log
+2026-01-28 18:37:48,955 INFO root: Deleted old log folder: logs\2025-11-06
+2026-01-28 18:37:48,957 INFO root: Logger initialized, writing to logs\2026-01-28\app.log
+2026-01-28 18:37:48,961 INFO root: Deleted old log folder: logs\2025-11-06
+2026-01-28 18:37:48,962 INFO root: Logger initialized, writing to logs\2026-01-28\app.log
+2026-01-28 18:37:48,968 INFO root: Deleted old log folder: logs\2025-11-06
+2026-01-28 18:37:48,970 INFO root: Logger initialized, writing to logs\2026-01-28\app.log
+2026-01-28 18:37:48,972 INFO root: Deleted old log folder: logs\2025-11-06
+2026-01-28 18:37:48,973 INFO root: Logger initialized, writing to logs\2026-01-28\app.log
+2026-01-28 18:37:48,974 INFO root: Streamlit app started
+2026-01-28 18:37:49,769 INFO root:  Database connection established successfully
+2026-01-28 18:37:53,984 ERROR root: Database fetch error: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'localhost' ([WinError 10061] No connection could be made because the target machine actively refused it)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-28 18:38:59,549 ERROR root: Traceback (most recent call last):
+2026-01-28 18:38:59,550 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\web\bootstrap.py", line 347, in run
+    if asyncio.get_running_loop().is_running():
+       ~~~~~~~~~~~~~~~~~~~~~~~~^^
+2026-01-28 18:38:59,550 ERROR root: RuntimeError: no running event loop
+2026-01-28 18:38:59,550 ERROR root: During handling of the above exception, another exception occurred:
+2026-01-28 18:38:59,550 ERROR root: Traceback (most recent call last):
+2026-01-28 18:38:59,552 ERROR root: File "<frozen runpy>", line 198, in _run_module_as_main
+2026-01-28 18:38:59,553 ERROR root: File "<frozen runpy>", line 88, in _run_code
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Scripts\streamlit.exe\__main__.py", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\click\core.py", line 1161, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\click\core.py", line 1082, in main
+    rv = self.invoke(ctx)
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\click\core.py", line 1697, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\click\core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\click\core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\web\cli.py", line 240, in main_run
+    _main_run(target, args, flag_options=kwargs)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\web\cli.py", line 276, in _main_run
+    bootstrap.run(file, is_hello, args, flag_options)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\web\bootstrap.py", line 355, in run
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2002, in _run_once
+    event_list = self._selector.select(timeout)
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\selectors.py", line 314, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\selectors.py", line 305, in _select
+    r, w, x = select.select(r, w, w, timeout)
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\web\bootstrap.py", line 44, in signal_handler
+    server.stop()
+    ~~~~~~~~~~~^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\web\server\server.py", line 469, in stop
+    cli_util.print_to_cli("  Stopping...", fg="blue")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\cli_util.py", line 34, in print_to_cli
+    click.secho(message, **kwargs)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\click\termui.py", line 634, in secho
+    return echo(message, file=file, nl=nl, err=err, color=color)
+2026-01-28 18:38:59,553 ERROR root: File "C:\Users\asmiv\AppData\Local\Programs\Python\Python313\Lib\site-packages\click\utils.py", line 318, in echo
+    file.write(out)  # type: ignore
+    ~~~~~~~~~~^^^^^
+2026-01-28 18:38:59,553 ERROR root: TypeError: a bytes-like object is required, not 'str'

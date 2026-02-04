@@ -1,0 +1,131 @@
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+.stDeployButton {display:none;}
+
+/* App background */
+.stApp {
+    background: linear-gradient(to bottom right, #f2f2f2, #ffffff);
+    color: #333;
+}
+
+/* Remove gradient line on top */
+[data-testid="stDecoration"] {
+    display: none;
+}
+
+/* Force full width app */
+.block-container {
+    max-width: 100% !important;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 0rem !important;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #1e1e1e;
+    padding: 15px 30px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 4px solid #ff4b4b;
+    border-radius: 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-logo img {
+    height: 50px !important;
+    margin-left: 15px;
+}
+
+.app-content {
+    margin-top: 80px;
+}
+
+h1, h2, h3, h4 {
+    color: #e74c3c;
+    font-size: 1rem;
+}
+
+.css-10trblm a, .css-1q8dd3e a, h1 a, h2 a, h3 a, h4 a {
+    display: none !important;
+}
+
+.stTextInput > div > input, .stSelectbox > div, .stTextArea > div > textarea {
+    background-color: #ffffff !important;
+    color: black !important;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.stDataFrame, .stTable {
+    background-color: white !important;
+    color: black !important;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.stButton > button {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.stButton > button:hover {
+    background-color: #c0392b;
+    color: white;
+}
+
+.stDownloadButton > button {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+}
+
+.issue_key_btn {
+    margin-top: 10px;
+}
+
+.scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f2f6;
+    color: #666666;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #dddddd;
+}
