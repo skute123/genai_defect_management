@@ -13,7 +13,7 @@ def get_db_engine():
     try:
         # Define SQLAlchemy connection string
         username = 'root'
-        password = 'asmi@123'
+        password = 'admin'
         host = 'localhost'
         database = 'defect_db'
 

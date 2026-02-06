@@ -52,6 +52,11 @@ def setup_logger(log_root="logs", log_file="app.log"):
                     self.logger.log(self.level, message)
         def flush(self):
             pass
+        def isatty(self):
+            return False
+        def fileno(self):
+            # Return a dummy file descriptor for compatibility
+            return -1
 
     
 

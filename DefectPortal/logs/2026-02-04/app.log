@@ -1,0 +1,432 @@
+2026-02-04 12:51:42,359 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:51:42,362 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:51:42,398 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:51:42,401 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:51:53,154 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:51:53,156 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:51:53,176 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:51:53,178 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:51:53,201 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:51:53,204 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:51:53,209 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:51:53,211 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:51:53,212 INFO root: Streamlit app started
+2026-02-04 12:51:54,519 ERROR root:  Database connection failed: No module named 'pymysql'
+2026-02-04 12:52:29,109 ERROR root: Traceback (most recent call last):
+2026-02-04 12:52:29,113 ERROR root: File "<frozen runpy>", line 198, in _run_module_as_main
+2026-02-04 12:52:29,113 ERROR root: File "<frozen runpy>", line 88, in _run_code
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Scripts\streamlit.exe\__main__.py", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1406, in main
+    rv = self.invoke(ctx)
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\cli.py", line 251, in main_run
+    _main_run(path_str, args, flag_options=kwargs)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\cli.py", line 308, in _main_run
+    bootstrap.run(file, is_hello, args, flag_options)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\bootstrap.py", line 356, in run
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 2008, in _run_once
+    event_list = self._selector.select(timeout)
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\selectors.py", line 314, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\selectors.py", line 305, in _select
+    r, w, x = select.select(r, w, w, timeout)
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\bootstrap.py", line 42, in signal_handler
+    server.stop()
+    ~~~~~~~~~~~^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\server\server.py", line 518, in stop
+    cli_util.print_to_cli("  Stopping...", fg="blue")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\cli_util.py", line 35, in print_to_cli
+    click.secho(message, **kwargs)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\termui.py", line 690, in secho
+    return echo(message, file=file, nl=nl, err=err, color=color)
+2026-02-04 12:52:29,114 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\utils.py", line 321, in echo
+    file.write(out)  # type: ignore
+    ~~~~~~~~~~^^^^^
+2026-02-04 12:52:29,115 ERROR root: TypeError: a bytes-like object is required, not 'str'
+2026-02-04 12:54:03,002 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:54:03,006 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:54:03,021 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:54:03,026 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:54:12,894 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:54:12,898 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:54:12,909 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:54:12,912 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:54:12,927 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:54:12,931 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:54:12,939 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 12:54:12,943 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 12:54:12,945 INFO root: Streamlit app started
+2026-02-04 12:54:14,078 INFO root:  Database connection established successfully
+2026-02-04 12:54:18,288 ERROR root: Database fetch error: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'localhost' ([WinError 10061] No connection could be made because the target machine actively refused it)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-04 14:56:20,687 ERROR root: Traceback (most recent call last):
+2026-02-04 14:56:20,693 ERROR root: File "<frozen runpy>", line 198, in _run_module_as_main
+2026-02-04 14:56:20,693 ERROR root: File "<frozen runpy>", line 88, in _run_code
+2026-02-04 14:56:20,693 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Scripts\streamlit.exe\__main__.py", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1406, in main
+    rv = self.invoke(ctx)
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\cli.py", line 251, in main_run
+    _main_run(path_str, args, flag_options=kwargs)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\cli.py", line 308, in _main_run
+    bootstrap.run(file, is_hello, args, flag_options)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\bootstrap.py", line 356, in run
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 2008, in _run_once
+    event_list = self._selector.select(timeout)
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\selectors.py", line 314, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\selectors.py", line 305, in _select
+    r, w, x = select.select(r, w, w, timeout)
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\bootstrap.py", line 42, in signal_handler
+    server.stop()
+    ~~~~~~~~~~~^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\server\server.py", line 518, in stop
+    cli_util.print_to_cli("  Stopping...", fg="blue")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\cli_util.py", line 35, in print_to_cli
+    click.secho(message, **kwargs)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\termui.py", line 690, in secho
+    return echo(message, file=file, nl=nl, err=err, color=color)
+2026-02-04 14:56:20,694 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\utils.py", line 321, in echo
+    file.write(out)  # type: ignore
+    ~~~~~~~~~~^^^^^
+2026-02-04 14:56:20,695 ERROR root: TypeError: a bytes-like object is required, not 'str'
+2026-02-04 15:37:10,983 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:37:10,986 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:37:10,999 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:37:11,001 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:37:16,991 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:37:16,993 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:37:17,002 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:37:17,005 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:37:17,016 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:37:17,018 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:37:17,021 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:37:17,023 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:37:17,025 INFO root: Streamlit app started
+2026-02-04 15:37:18,289 INFO root:  Database connection established successfully
+2026-02-04 15:37:18,350 ERROR root: Database fetch error: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-02-04 15:39:52,918 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:39:52,920 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:39:52,929 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:39:52,931 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:39:52,938 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:39:52,939 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:39:52,943 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:39:52,945 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:39:52,950 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:39:52,951 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:39:52,958 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:39:52,959 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:39:52,962 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:39:52,964 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:39:52,964 INFO root: Streamlit app started
+2026-02-04 15:39:52,975 INFO root:  Database connection established successfully
+2026-02-04 15:39:53,090 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:39:53,154 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:39:53,259 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 15:39:53,284 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 15:40:27,320 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:40:27,324 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:40:27,327 INFO root: Streamlit app started
+2026-02-04 15:40:27,348 INFO root:  Database connection established successfully
+2026-02-04 15:40:27,370 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:40:27,373 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:40:27,374 INFO root: Streamlit app started
+2026-02-04 15:40:27,388 INFO root:  Database connection established successfully
+2026-02-04 15:40:27,631 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:40:27,697 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:40:27,899 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:40:28,373 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:40:28,495 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 15:40:28,543 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 15:40:28,553 INFO root: User searched for Issue Key: OS-25964
+2026-02-04 15:40:28,593 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 15:41:24,903 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:41:24,907 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:41:24,912 INFO root: Streamlit app started
+2026-02-04 15:41:24,942 INFO root:  Database connection established successfully
+2026-02-04 15:41:25,232 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:41:25,322 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:41:25,403 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 15:41:25,436 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 15:41:25,445 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 15:41:25,902 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:41:25,906 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:41:25,907 INFO root: Streamlit app started
+2026-02-04 15:41:25,923 INFO root:  Database connection established successfully
+2026-02-04 15:41:26,128 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:41:26,200 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:41:26,277 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 15:41:26,303 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 15:41:26,311 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 15:41:28,332 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:41:28,336 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:41:28,338 INFO root: Streamlit app started
+2026-02-04 15:41:28,356 INFO root:  Database connection established successfully
+2026-02-04 15:41:28,590 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:41:28,672 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:41:28,770 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 15:41:28,805 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 15:41:28,811 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 15:41:37,144 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:41:37,149 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:41:37,152 INFO root: Streamlit app started
+2026-02-04 15:41:37,177 INFO root:  Database connection established successfully
+2026-02-04 15:41:37,444 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:41:37,584 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:41:37,725 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 15:41:37,766 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 15:41:37,782 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 15:41:39,617 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 15:41:39,621 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 15:41:39,624 INFO root: Streamlit app started
+2026-02-04 15:41:39,648 INFO root:  Database connection established successfully
+2026-02-04 15:41:39,907 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 15:41:40,034 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 15:41:40,129 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 15:41:40,162 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 15:41:40,167 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 15:41:40,211 INFO root: ACC search returned 1186 rows for keyword 'error'
+2026-02-04 15:41:40,227 INFO root: SIT search returned 462 rows for keyword 'error'
+2026-02-04 15:41:40,439 INFO root: Generating OSF-System chart for ACC with 9 categories
+2026-02-04 15:41:40,561 INFO root: Generating OSF-System chart for SIT with 7 categories
+2026-02-04 15:41:40,585 INFO root: Generating vendor+application chart for ACC with 49 categories
+2026-02-04 15:41:40,611 INFO root: Generating vendor+application chart for SIT with 20 categories
+2026-02-04 17:09:13,782 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:13,788 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:13,797 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:13,798 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:13,805 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:13,807 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:13,817 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:13,818 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:13,824 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:13,825 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:13,829 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:13,830 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:13,832 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:13,833 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:13,833 INFO root: Streamlit app started
+2026-02-04 17:09:13,942 INFO root:  Database connection established successfully
+2026-02-04 17:09:14,245 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 17:09:14,290 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 17:09:14,373 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 17:09:14,399 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 17:09:14,406 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 17:09:22,597 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:22,598 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:22,601 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:22,602 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:22,608 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:22,609 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:22,614 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:22,615 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:22,619 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:22,621 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:22,625 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:22,627 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:22,628 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:22,629 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:22,629 INFO root: Streamlit app started
+2026-02-04 17:09:22,636 INFO root:  Database connection established successfully
+2026-02-04 17:09:22,739 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 17:09:22,777 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 17:09:22,824 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 17:09:22,842 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 17:09:22,845 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 17:09:22,850 WARNING root: User clicked Find Data without selecting any columns
+2026-02-04 17:09:25,115 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:25,116 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:25,117 INFO root: Streamlit app started
+2026-02-04 17:09:25,127 INFO root:  Database connection established successfully
+2026-02-04 17:09:25,223 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 17:09:25,258 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 17:09:25,312 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 17:09:25,330 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 17:09:25,337 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 17:09:25,970 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:25,971 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:25,972 INFO root: Streamlit app started
+2026-02-04 17:09:25,978 INFO root:  Database connection established successfully
+2026-02-04 17:09:26,055 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 17:09:26,093 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 17:09:26,136 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 17:09:26,152 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 17:09:26,156 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 17:09:26,429 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:26,430 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:26,431 INFO root: Streamlit app started
+2026-02-04 17:09:26,438 INFO root:  Database connection established successfully
+2026-02-04 17:09:26,522 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 17:09:26,561 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 17:09:26,611 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 17:09:26,630 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 17:09:26,638 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 17:09:27,606 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:09:27,608 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:09:27,608 INFO root: Streamlit app started
+2026-02-04 17:09:27,616 INFO root:  Database connection established successfully
+2026-02-04 17:09:27,691 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 17:09:27,729 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 17:09:27,780 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 17:09:27,799 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 17:09:27,805 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 17:09:27,831 INFO root: ACC search returned 1186 rows for keyword 'error'
+2026-02-04 17:09:27,842 INFO root: SIT search returned 462 rows for keyword 'error'
+2026-02-04 17:09:27,949 INFO root: Generating OSF-System chart for ACC with 9 categories
+2026-02-04 17:09:27,962 INFO root: Generating OSF-System chart for SIT with 7 categories
+2026-02-04 17:09:27,977 INFO root: Generating vendor+application chart for ACC with 49 categories
+2026-02-04 17:09:27,995 INFO root: Generating vendor+application chart for SIT with 20 categories
+2026-02-04 17:30:54,665 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:30:54,668 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:30:54,677 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:30:54,679 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:30:54,688 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:30:54,690 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:30:54,697 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:30:54,700 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:30:54,705 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:30:54,707 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:30:54,712 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:30:54,713 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:30:54,716 INFO root: Deleted old log folder: logs\2025-11-07
+2026-02-04 17:30:54,718 INFO root: Logger initialized, writing to logs\2026-02-04\app.log
+2026-02-04 17:30:54,719 INFO root: Streamlit app started
+2026-02-04 17:30:54,815 INFO root:  Database connection established successfully
+2026-02-04 17:30:54,968 INFO root: Loaded ACC defects: 2350 rows
+2026-02-04 17:30:55,016 INFO root: Loaded SIT defects: 3473 rows
+2026-02-04 17:30:55,074 INFO root: Displayed ACC defects table with 2350 rows
+2026-02-04 17:30:55,097 INFO root: Displayed SIT defects table with 3473 rows
+2026-02-04 17:30:55,103 INFO root: User searched for Issue Key: OS-25964
+2026-02-04 17:30:55,113 INFO root: Displaying ACC defect details for Issue Key: OS-25964
+2026-02-04 17:30:55,250 INFO root: Generating OSF-System chart for ACC with 9 categories
+2026-02-04 17:30:55,265 INFO root: Generating OSF-System chart for SIT with 7 categories
+2026-02-04 17:30:55,279 INFO root: Generating vendor+application chart for ACC with 49 categories
+2026-02-04 17:30:55,306 INFO root: Generating vendor+application chart for SIT with 20 categories
+2026-02-04 17:31:11,677 ERROR root: Traceback (most recent call last):
+2026-02-04 17:31:11,679 ERROR root: File "<frozen runpy>", line 198, in _run_module_as_main
+2026-02-04 17:31:11,679 ERROR root: File "<frozen runpy>", line 88, in _run_code
+2026-02-04 17:31:11,679 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Scripts\streamlit.exe\__main__.py", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+2026-02-04 17:31:11,679 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,679 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1406, in main
+    rv = self.invoke(ctx)
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\cli.py", line 251, in main_run
+    _main_run(path_str, args, flag_options=kwargs)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\cli.py", line 308, in _main_run
+    bootstrap.run(file, is_hello, args, flag_options)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\bootstrap.py", line 356, in run
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+2026-02-04 17:31:11,680 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 2008, in _run_once
+    event_list = self._selector.select(timeout)
+2026-02-04 17:31:11,681 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\selectors.py", line 314, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,681 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\selectors.py", line 305, in _select
+    r, w, x = select.select(r, w, w, timeout)
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,681 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\bootstrap.py", line 42, in signal_handler
+    server.stop()
+    ~~~~~~~~~~~^^
+2026-02-04 17:31:11,681 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\web\server\server.py", line 518, in stop
+    cli_util.print_to_cli("  Stopping...", fg="blue")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,681 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\streamlit\cli_util.py", line 35, in print_to_cli
+    click.secho(message, **kwargs)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+2026-02-04 17:31:11,681 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\termui.py", line 690, in secho
+    return echo(message, file=file, nl=nl, err=err, color=color)
+2026-02-04 17:31:11,681 ERROR root: File "C:\Users\sudhikut\AppData\Local\Programs\Python\Python314\Lib\site-packages\click\utils.py", line 321, in echo
+    file.write(out)  # type: ignore
+    ~~~~~~~~~~^^^^^
+2026-02-04 17:31:11,681 ERROR root: TypeError: a bytes-like object is required, not 'str'

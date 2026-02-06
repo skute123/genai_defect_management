@@ -10,16 +10,18 @@ def search_issue_key(defect_data_acc, defect_data_sit):
     """
     # --- Issue Key Search Section ---
     st.markdown("### Search Defect by Issue Key")
-    col1, col2 = st.columns([1, 2])
+    st.markdown("**Enter Issue Key**")
+    col1, col2, col3 = st.columns([2, 1, 3])  # col3 left empty for spacing
     with col1:
-        issue_key_input = st.text_input("Enter Issue Key", placeholder="E.g., OS-1234 or Z_INC1234")
+        issue_key_input = st.text_input(
+            "Issue Key",
+            placeholder="E.g., OS-1234 or Z_INC1234",
+            label_visibility="collapsed"
+        )
     
     with col2:
-        # Add empty space to align button with text box
-        st.markdown('<div class="issue_key_btn">', unsafe_allow_html=True)
-        if st.button("Search-Defect"):
+        if st.button("Search-Defect", use_container_width=True):
             if issue_key_input:
-                # filtered = defect_data[defect_data['Issue key'].astype(str).str.strip().str.upper() == issue_key_input.strip().upper()]
                 issue_key_input_value = issue_key_input.strip().upper()
                 st.session_state.issue_key_input_val = issue_key_input_value
                 st.session_state.issue_key_searched = True
@@ -43,7 +45,6 @@ def search_issue_key(defect_data_acc, defect_data_sit):
                 st.session_state.issue_key_searched = False
                 st.session_state.invalid_issue_key = True
                 logger.warning("User clicked Search-Defect without entering an Issue Key")
-        st.markdown('</div>', unsafe_allow_html=True)
 
     # Show warning in full width (outside button wrapper)
     if "invalid_issue_key" in st.session_state and st.session_state.invalid_issue_key:

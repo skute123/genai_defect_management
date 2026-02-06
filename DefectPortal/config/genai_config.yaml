@@ -1,0 +1,57 @@
+# GenAI Configuration for DefectPortal
+# All settings for AI-powered defect search
+
+# Embedding Model Configuration
+embedding:
+  model_name: "all-MiniLM-L6-v2"  # Free, local model from sentence-transformers
+  # Alternative models:
+  # - "all-mpnet-base-v2" (better quality, slower)
+  # - "paraphrase-MiniLM-L6-v2" (good for short texts)
+
+# Vector Database Configuration  
+vector_store:
+  persist_directory: "knowledge_base/vector_store"
+  defect_collection: "defect_embeddings"
+  document_collection: "document_embeddings"
+
+# Similarity Search Configuration
+similarity_search:
+  defect_match_threshold: 0.50  # Minimum 50% similarity for defects
+  defect_max_results: 5         # Maximum similar defects to return
+  document_match_threshold: 0.30  # Minimum 30% for documents
+  document_max_results: 3       # Maximum related documents
+
+# LLM Configuration (Ollama - free, local)
+llm:
+  provider: "ollama"
+  model_name: "mistral"  # Options: mistral, llama2, codellama, etc.
+  ollama_url: "http://localhost:11434"
+  timeout: 60  # seconds
+  temperature: 0.3  # Lower = more consistent
+  max_tokens: 500
+
+# Knowledge Base Configuration
+knowledge_base:
+  documents_path: "knowledge_base/documents"
+  supported_formats:
+    - ".txt"
+    - ".md"
+    - ".pdf"
+    - ".docx"
+  chunk_size: 500  # words per chunk
+  chunk_overlap: 50  # overlapping words
+
+# Feature Flags
+features:
+  enable_similar_defects: true
+  enable_document_search: true
+  enable_resolution_suggestions: true
+  enable_context_summary: true
+  enable_llm_generation: true  # Falls back to rule-based if Ollama unavailable
+
+# UI Configuration
+ui:
+  show_similarity_scores: true
+  max_displayed_similar: 5
+  max_displayed_docs: 3
+  expand_first_result: true

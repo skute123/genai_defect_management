@@ -16,7 +16,7 @@ primary_key_col = "Issue key"
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='asmi@123',
+    password='admin',
     database='defect_db'
 )
 cursor = conn.cursor()

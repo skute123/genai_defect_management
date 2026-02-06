@@ -1,4 +1,5 @@
 import streamlit as st
+from datetime import datetime
 from modules.pop_up_waves_acc import popup_acc
 from modules.pop_up_waves_sit import popup_sit
 from utilities.logger_config import setup_logger
@@ -10,6 +11,8 @@ from modules.search_issue_key import search_issue_key
 from modules.search_keyword import search_keyword
 from modules.session_state_manager import initialize_session_state
 
+# Import AI Search UI module
+from modules.ai_search_ui import render_ai_search_section, render_genai_sidebar
 
 logger = setup_logger()
 
@@ -18,7 +21,12 @@ from sqlalchemy import create_engine
 # Streamlit UI
 def main():
     logger.info("Streamlit app started")
-    st.set_page_config(page_title="DefectSearch", layout="centered",initial_sidebar_state="collapsed")
+    st.set_page_config(
+        page_title="DefectSearch AI", 
+        layout="wide",  # Changed to wide for better AI results display
+        initial_sidebar_state="collapsed",
+        page_icon="🔍"
+    )
 
     initialize_session_state()
 
@@ -30,7 +38,7 @@ def main():
     # --- Database Connection ---    
     engine = get_db_engine()
 
-    # show the popup first
+    # Show the popup first
     col1, col2 = st.columns(2)
     with col1:
         popup_acc()
@@ -40,32 +48,49 @@ def main():
     # --- Load Data from DB ---
     defect_data_acc, defect_data_sit = display_defects(engine)
 
+    # ===========================================
+    # TRADITIONAL SEARCH SECTION
+    # ===========================================
+    st.markdown("---")
+    st.markdown("## 📋 Traditional Search Options")
 
     # --- Issue Key Search Section ---
     search_issue_key(defect_data_acc, defect_data_sit)
 
-    # # search using keyword
+    # Search using keyword
+    search_keyword(defect_data_acc, defect_data_sit)
 
-    search_keyword(defect_data_acc,defect_data_sit)
+    # ===========================================
+    # AI-ENHANCED SEARCH SECTION
+    # ===========================================
+    try:
+        render_ai_search_section(defect_data_acc, defect_data_sit)
+    except Exception as e:
+        logger.warning(f"AI Search not available: {e}")
+        st.info("💡 AI-Enhanced Search is being initialized. Install required packages for full functionality.")
 
-if __name__ == "__main__":
-    main()
-
-# --- Footer ---
+    # --- Enhanced Footer ---
+    current_year = datetime.now().year
+    
     st.markdown(
-        """
-        <div style="
-            background-color: #f0f2f6;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 14px;
-            color: #666666;
-            margin-top: 50px;
-            border-top: 1px solid #ddd;
-            border-radius: 8px;
-        ">
-            &copy; <strong>Defect Search & Analysis Portal</strong> | Amdocs
+        f"""
+        <div class="custom-footer">
+            <div class="footer-content">
+                <span class="footer-section copyright">
+                    &copy; {current_year} Defect Search & Analysis Portal
+                </span>
+                <span class="footer-section powered-by">
+                    Powered by AI
+                </span>
+                <span class="footer-section company">
+                    Amdocs
+                </span>
+            </div>
         </div>
         """,
         unsafe_allow_html=True
     )
+
+
+if __name__ == "__main__":
+    main()
