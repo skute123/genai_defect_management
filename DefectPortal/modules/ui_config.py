@@ -43,7 +43,7 @@ def load_navbar():
 
     navbar_html = f"""
     <div class="navbar">
-        <div class="navbar-title">Defect Search & Analysis</div>
+        <div class="navbar-title">DefectDNA</div>
         <div class="navbar-logo">
             <img src="data:image/png;base64,{logo_base64}" alt="Logo">
         </div>

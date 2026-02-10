@@ -22,7 +22,7 @@ from sqlalchemy import create_engine
 def main():
     logger.info("Streamlit app started")
     st.set_page_config(
-        page_title="DefectSearch AI", 
+        page_title="DefectDNA AI", 
         layout="wide",  # Changed to wide for better AI results display
         initial_sidebar_state="collapsed",
         page_icon="🔍"
@@ -52,7 +52,7 @@ def main():
     # TRADITIONAL SEARCH SECTION
     # ===========================================
     st.markdown("---")
-    st.markdown("## 📋 Traditional Search Options")
+    st.markdown("## 🔎 Quick Defect Search")
 
     # --- Issue Key Search Section ---
     search_issue_key(defect_data_acc, defect_data_sit)
@@ -77,7 +77,7 @@ def main():
         <div class="custom-footer">
             <div class="footer-content">
                 <span class="footer-section copyright">
-                    &copy; {current_year} Defect Search & Analysis Portal
+                    &copy; {current_year} DefectDNA
                 </span>
                 <span class="footer-section powered-by">
                     Powered by AI

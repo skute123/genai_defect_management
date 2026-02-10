@@ -21,7 +21,8 @@ def get_db_engine():
         from urllib.parse import quote_plus
         encoded_password = quote_plus(password)
 
-        engine = create_engine(f"mysql+pymysql://{username}:{encoded_password}@{host}/{database}")
+        # Using mysql-connector-python which has native support for caching_sha2_password
+        engine = create_engine(f"mysql+mysqlconnector://{username}:{encoded_password}@{host}/{database}")
         logger.info(" Database connection established successfully")
         return engine
         

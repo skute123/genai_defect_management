@@ -19,7 +19,7 @@ def search_keyword(defect_data_acc, defect_data_sit):
     ]
 
 
-    st.markdown("### Search Multiple Columns for Keyword")
+    st.markdown("### Search by Criteria")
     col1, col2, col3 = st.columns([1, 1, 2])
     with col1:
         selected_columns = st.multiselect("Select columns to search in", searchable_columns, key="selected_columns", on_change=_clear_results)

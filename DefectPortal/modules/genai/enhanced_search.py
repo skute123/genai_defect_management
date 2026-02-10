@@ -271,7 +271,13 @@ def display_enhanced_results(results: Dict[str, Any]):
             status = metadata.get('status', 'Unknown')
             status_color = "🟢" if 'closed' in status.lower() or 'resolved' in status.lower() else "🟡"
             
-            with st.expander(f"{status_color} {metadata.get('issue_key', 'Unknown')} ({similarity}% match) - {status}", expanded=(i==1)):
+            issue_key = metadata.get('issue_key', 'Unknown')
+            jira_base_url = "https://jira.sp.vodafone.com/browse"
+            jira_link = f"{jira_base_url}/{issue_key}"
+            
+            with st.expander(f"{status_color} {issue_key} ({similarity}% match) - {status}", expanded=(i==1)):
+                # JIRA Link
+                st.markdown(f'<a href="{jira_link}" target="_blank" style="color: #1a73e8; text-decoration: none;">🔗 Open in JIRA</a>', unsafe_allow_html=True)
                 st.markdown(f"**Summary:** {metadata.get('summary', 'N/A')}")
                 
                 fix_desc = metadata.get('fix_description', '')
@@ -322,6 +328,10 @@ def display_enhanced_results(results: Dict[str, Any]):
         st.markdown("---")
         st.markdown("### 📚 Related Knowledge Documents")
         
+        # SharePoint document URL
+        doc_base_url = "https://amdocs-my.sharepoint.com/:t:/r/personal/sudhikut_amdocs_com/Documents/Documents/GenAI/GenAI%20Defect%20Portal/genai_defect_management/DefectPortal/knowledge_base/documents"
+        doc_query_params = "?csf=1&web=1"
+        
         for doc in docs[:3]:
             metadata = doc.get('metadata', {})
             filename = metadata.get('filename', 'Unknown Document')
@@ -330,13 +340,17 @@ def display_enhanced_results(results: Dict[str, Any]):
             content = doc.get('content', '')[:300]
             filepath = metadata.get('filepath', '')
             
+            # Create document link using filename (URL encode spaces)
+            filename_encoded = filename.replace(' ', '%20')
+            doc_link = f"{doc_base_url}/{filename_encoded}{doc_query_params}"
+            
             with st.expander(f"📄 {filename} ({relevance}% relevance)"):
                 if section:
                     st.markdown(f"**Section:** {section}")
                 st.markdown(f"**Preview:** {content}...")
                 
                 if filepath:
-                    st.markdown(f"📎 [Open Document]({filepath})")
+                    st.markdown(f'📎 **File Path:** <a href="{doc_link}" target="_blank" style="color: #1a73e8;">{filepath}</a>', unsafe_allow_html=True)
     
     # 4. Context Summary Section
     summary = results.get('context_summary', {})
