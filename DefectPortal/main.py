@@ -8,7 +8,6 @@ from modules.display_defects import display_defects
 from modules.utilities import get_base64
 from modules.ui_config import load_css, load_font_css, load_navbar
 from modules.search_issue_key import search_issue_key
-from modules.search_keyword import search_keyword
 from modules.session_state_manager import initialize_session_state
 
 # Import AI Search UI module
@@ -56,9 +55,6 @@ def main():
 
     # --- Issue Key Search Section ---
     search_issue_key(defect_data_acc, defect_data_sit)
-
-    # Search using keyword
-    search_keyword(defect_data_acc, defect_data_sit)
 
     # ===========================================
     # AI-ENHANCED SEARCH SECTION
