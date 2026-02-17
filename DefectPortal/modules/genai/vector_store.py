@@ -5,6 +5,7 @@ Uses numpy for similarity search (compatible with Python 3.14)
 
 import logging
 import os
+import re
 import json
 import numpy as np
 from typing import List, Dict, Any, Optional
@@ -132,16 +133,23 @@ class VectorStore:
             doc_text = f"{defect.get('Summary', '')} {defect.get('Description', '')}"
             self.defect_documents.append(doc_text[:5000])
             
+            # Fix description: try standard column first, then alternate names (DB/Excel may differ)
+            fix_desc = defect.get('Custom field (OSF-Fix Description)') or defect.get('OSF-Fix Description') or defect.get('Fix Description') or ''
+            fix_desc = str(fix_desc).strip()
+            if fix_desc.lower() in ('nan', 'none', ''):
+                fix_desc = ''
+            fix_desc = fix_desc[:1000]
+
             # Store metadata
             metadata = {
                 'issue_key': issue_key,
                 'summary': str(defect.get('Summary', ''))[:500],
                 'status': str(defect.get('Status', '')),
                 'priority': str(defect.get('Priority', '')),
-                'osf_wave': str(defect.get('OSF-Wave', '')),
+                'osf_wave': str(defect.get('OSF-Wave', '') or defect.get('Fix Version/s', '')),
                 'osf_system': str(defect.get('OSF-System', '')),
                 'resolution': str(defect.get('Resolution', '')),
-                'fix_description': str(defect.get('Custom field (OSF-Fix Description)', ''))[:1000],
+                'fix_description': fix_desc,
                 'source': str(defect.get('source', 'unknown'))
             }
             self.defect_metadata.append(metadata)
@@ -284,6 +292,40 @@ class VectorStore:
                 'metadata': self.document_metadata[idx]
             })
         
+        return results
+    
+    def search_documents_by_keywords(
+        self,
+        query: str,
+        n_results: int = 3
+    ) -> List[Dict[str, Any]]:
+        """
+        Fallback search: find document chunks that contain query terms (e.g. for
+        error messages like "KIAS-SetMarketingPermissions" when semantic similarity is low).
+        """
+        if not self.document_texts or not query or not query.strip():
+            return []
+        # Extract significant terms: alphanumeric + hyphen (e.g. KIAS-SetMarketingPermissions, SetMarketingPermissions)
+        tokens = re.findall(r'[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*', query)
+        terms = [t for t in tokens if len(t) >= 2]
+        if not terms:
+            return []
+        terms_lower = [t.lower() for t in terms]
+        scored = []
+        for i, text in enumerate(self.document_texts):
+            text_lower = (text or '').lower()
+            count = sum(1 for t in terms_lower if t in text_lower)
+            if count > 0:
+                scored.append((i, count))
+        scored.sort(key=lambda x: x[1], reverse=True)
+        results = []
+        for idx, _ in scored[:n_results]:
+            results.append({
+                'id': self.document_ids[idx],
+                'similarity': 30.0,  # keyword match relevance label
+                'content': self.document_texts[idx],
+                'metadata': self.document_metadata[idx]
+            })
         return results
     
     def get_collection_stats(self) -> Dict[str, int]:

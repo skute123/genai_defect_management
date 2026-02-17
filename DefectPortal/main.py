@@ -37,6 +37,9 @@ def main():
     # --- Database Connection ---    
     engine = get_db_engine()
 
+    # AI sidebar (Re-index Data, Index Knowledge Base)
+    render_genai_sidebar()
+
     # Show the popup first
     col1, col2 = st.columns(2)
     with col1:

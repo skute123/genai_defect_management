@@ -3,6 +3,7 @@ AI-Enhanced Search UI Module
 Provides the Streamlit UI components for the AI-powered defect search.
 """
 
+import html
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -75,7 +76,11 @@ def render_ai_search_section(defect_data_acc: pd.DataFrame, defect_data_sit: pd.
         
         # Display results if available
         if 'ai_search_results' in st.session_state and st.session_state['ai_search_results']:
-            display_ai_search_results(st.session_state['ai_search_results'])
+            display_ai_search_results(
+                st.session_state['ai_search_results'],
+                defect_data_acc=defect_data_acc,
+                defect_data_sit=defect_data_sit,
+            )
     
     except ImportError as e:
         st.warning(f"AI Search module not fully installed. Please install required packages: {e}")
@@ -85,12 +90,41 @@ def render_ai_search_section(defect_data_acc: pd.DataFrame, defect_data_sit: pd.
         st.error(f"AI Search error: {e}")
 
 
-def display_ai_search_results(results: Dict[str, Any]):
+def _get_fix_description_from_db(
+    issue_key: str,
+    defect_data_acc: Optional[pd.DataFrame],
+    defect_data_sit: Optional[pd.DataFrame],
+    fix_desc_column: str = "Custom field (OSF-Fix Description)",
+) -> str:
+    """Look up fix description for a defect by issue_key in ACC/SIT data. Returns empty string if not found."""
+    if not issue_key or issue_key == "Unknown":
+        return ""
+    for df in (defect_data_acc, defect_data_sit):
+        if df is None or df.empty or fix_desc_column not in df.columns:
+            continue
+        key_col = "Issue key"
+        if key_col not in df.columns:
+            continue
+        match = df[df[key_col].astype(str).str.strip().str.upper() == str(issue_key).strip().upper()]
+        if not match.empty:
+            val = match[fix_desc_column].iloc[0]
+            if pd.notna(val) and str(val).strip().lower() not in ("", "nan", "none"):
+                return str(val).strip()[:1000]
+    return ""
+
+
+def display_ai_search_results(
+    results: Dict[str, Any],
+    defect_data_acc: Optional[pd.DataFrame] = None,
+    defect_data_sit: Optional[pd.DataFrame] = None,
+):
     """
     Display the AI search results in a formatted layout.
     
     Args:
         results: Results from EnhancedSearch.search()
+        defect_data_acc: Optional ACC defects DataFrame for resolving fix description from DB when missing in cache.
+        defect_data_sit: Optional SIT defects DataFrame for resolving fix description from DB when missing in cache.
     """
     query = results.get('query', '')
     
@@ -175,14 +209,17 @@ def display_ai_search_results(results: Dict[str, Any]):
             
             with st.expander(
                 f"{status_icon} {issue_key} ({similarity}% match) - {status}",
-                expanded=(i == 1)
+                expanded=False
             ):
                 # JIRA Link
                 st.markdown(f'<a href="{jira_link}" target="_blank" style="color: #1a73e8; text-decoration: none;">🔗 Open in JIRA</a>', unsafe_allow_html=True)
                 st.markdown(f"**Summary:** {metadata.get('summary', 'N/A')}")
                 
-                fix_desc = metadata.get('fix_description', '')
-                if fix_desc and str(fix_desc).lower() not in ['nan', 'none', '']:
+                fix_desc = metadata.get('fix_description', '') or ''
+                if not fix_desc or str(fix_desc).strip().lower() in ('nan', 'none', ''):
+                    # Fallback: look up current fix description from DB (e.g. OS-77008 has resolution in DB but not in vector cache)
+                    fix_desc = _get_fix_description_from_db(issue_key, defect_data_acc, defect_data_sit)
+                if fix_desc and str(fix_desc).strip().lower() not in ('nan', 'none', ''):
                     st.markdown(f"**✅ Resolution:** {fix_desc}")
                 
                 wave = metadata.get('osf_wave', '')
@@ -195,44 +232,95 @@ def display_ai_search_results(results: Dict[str, Any]):
     
     # 4. AI Suggested Resolutions
     resolution_data = results.get('resolution_suggestions', {})
-    if resolution_data.get('suggestions') or resolution_data.get('root_causes'):
+    if resolution_data.get('suggestions') or resolution_data.get('root_causes') or resolution_data.get('ai_suggestions'):
         st.markdown("---")
         st.markdown("### 4️⃣ AI Suggested Resolutions")
-        
-        # Suggestions
+        st.caption("Based on similar past defects and AI analysis.")
+        st.markdown("<div style='margin-bottom: 1rem;'></div>", unsafe_allow_html=True)
+
+        # Suggestions – stacked cards (match level from similarity %)
         suggestions = resolution_data.get('suggestions', [])
         for i, sugg in enumerate(suggestions[:3], 1):
-            confidence = sugg.get('confidence', 'low')
-            confidence_emoji = {'high': '🟢', 'medium': '🟡', 'low': '🟠'}.get(confidence, '⚪')
-            
+            similarity = sugg.get('similarity', 0)
+            # Derive HIGH/MEDIUM/LOW from match percentage
+            if similarity >= 60:
+                match_level, match_color = 'high', '#2e7d32'
+            elif similarity >= 40:
+                match_level, match_color = 'medium', '#ed6c02'
+            else:
+                match_level, match_color = 'low', '#f9a825'
+            source_key = html.escape(str(sugg.get('source', 'analysis')))
+            text = html.escape(str(sugg.get('text', 'N/A'))).replace('\n', '<br/>')
             st.markdown(f"""
-            {confidence_emoji} **Suggestion {i}** (from {sugg.get('source', 'analysis')}, {sugg.get('similarity', 0)}% match)
-            
-            > {sugg.get('text', 'N/A')}
-            """)
-        
-        # Root Causes
-        root_causes = resolution_data.get('root_causes', [])
-        if root_causes:
-            st.markdown("**⚠️ Common Root Causes in Similar Defects:**")
-            for rc in root_causes[:3]:
-                st.markdown(f"- {rc['cause']} ({rc['percentage']}%)")
-        
-        # AI Analysis
-        ai_suggestions = resolution_data.get('ai_suggestions', '')
-        if ai_suggestions:
-            st.markdown("""
             <div style="
-                background-color: #f0f7ff;
-                border-left: 4px solid #2196F3;
-                padding: 12px 16px;
-                margin: 10px 0;
-                border-radius: 4px;
+                background-color: #fafafa;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 14px 18px;
+                margin-bottom: 12px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06);
             ">
-                <strong style="color: #1976D2;">💡 AI Analysis</strong>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                    <span style="
+                        background-color: {match_color};
+                        color: white;
+                        font-size: 0.7rem;
+                        padding: 2px 8px;
+                        border-radius: 12px;
+                        font-weight: 600;
+                    ">{match_level.upper()}</span>
+                    <span style="color: #424242; font-weight: 600;">From {source_key}</span>
+                    <span style="
+                        background-color: #e3f2fd;
+                        color: #1565c0;
+                        font-size: 0.75rem;
+                        padding: 2px 8px;
+                        border-radius: 12px;
+                    ">{similarity}% match</span>
+                </div>
+                <div style="color: #616161; line-height: 1.5; font-size: 0.95rem;">{text}</div>
             </div>
             """, unsafe_allow_html=True)
-            st.markdown(ai_suggestions)
+
+        # Root Causes – in expander with distinct (amber) colors
+        root_causes = resolution_data.get('root_causes', [])
+        if root_causes:
+            rc_lines = "".join(
+                f"<li style='margin-bottom: 6px;'><strong>{html.escape(str(rc['cause']))}</strong> — {rc['percentage']}%</li>"
+                for rc in root_causes[:3]
+            )
+            with st.expander("📋 Common Root Causes in Similar Defects", expanded=False):
+                st.markdown(f"""
+                <div style="
+                    background-color: #fff8e7;
+                    border-left: 4px solid #ed6c02;
+                    padding: 14px 18px;
+                    border-radius: 6px;
+                    margin: 8px 0;
+                ">
+                    <ul style="margin: 0; padding-left: 20px; color: #5d4037;">
+                        {rc_lines}
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+
+        # AI Analysis – blue callout
+        ai_suggestions = resolution_data.get('ai_suggestions', '')
+        if ai_suggestions:
+            ai_escaped = html.escape(ai_suggestions).replace('\n', '<br/>')
+            st.markdown(f"""
+            <div style="
+                background-color: #e3f2fd;
+                border-left: 4px solid #1976d2;
+                padding: 16px 20px;
+                margin: 12px 0;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            ">
+                <strong style="color: #1565c0; font-size: 1.2rem;">💡 AI Analysis</strong>
+                <div style="color: #37474f; line-height: 1.6; margin-top: 10px;">{ai_escaped}</div>
+            </div>
+            """, unsafe_allow_html=True)
     
     # 5. Related Knowledge Documents
     related_docs = results.get('related_documents', [])
@@ -300,13 +388,14 @@ def display_ai_search_visualizations(results: Dict[str, Any]):
     st.markdown("---")
     st.markdown("### 6️⃣ Insights & Analytics")
     
-    # Prepare data for visualizations
+    # Prepare data for visualizations (include Resolution column from DB for resolution rate)
     defect_data = []
     for defect in all_defects:
         metadata = defect.get('metadata', {})
         defect_data.append({
             'issue_key': metadata.get('issue_key', 'Unknown'),
             'status': metadata.get('status', 'Unknown'),
+            'resolution': metadata.get('resolution', ''),  # DB column Resolution
             'priority': metadata.get('priority', 'Unknown'),
             'similarity': defect.get('similarity', 0),
             'source': metadata.get('source', 'Unknown').upper()
@@ -317,17 +406,18 @@ def display_ai_search_visualizations(results: Dict[str, Any]):
     if df.empty:
         return
     
-    # Helper function to categorize status
-    def categorize_status(status):
-        status_lower = str(status).lower()
-        if any(kw in status_lower for kw in ['closed', 'resolved', 'done', 'fixed']):
+    # Helper: treat as resolved if Status or Resolution column indicates it (DB Resolution column)
+    def categorize_status(row):
+        status_lower = str(row.get('status', '')).lower()
+        resolution_lower = str(row.get('resolution', '')).lower()
+        resolved_keywords = ['closed', 'resolved', 'done', 'fixed', 'verified', 'complete']
+        if any(kw in status_lower for kw in resolved_keywords) or any(kw in resolution_lower for kw in resolved_keywords):
             return 'Resolved'
-        elif any(kw in status_lower for kw in ['open', 'new', 'to do']):
+        if any(kw in status_lower for kw in ['open', 'new', 'to do']):
             return 'Open'
-        else:
-            return 'In Progress'
+        return 'In Progress'
     
-    df['status_category'] = df['status'].apply(categorize_status)
+    df['status_category'] = df.apply(categorize_status, axis=1)
     
     # Calculate summary metrics
     total_defects = len(df)
@@ -629,17 +719,19 @@ def render_genai_sidebar():
         # Index management
         if st.button("🔄 Re-index Data", key="reindex_btn"):
             st.session_state['genai_indexed'] = False
+            st.session_state['genai_force_reindex'] = True
             st.session_state.pop('genai_system', None)
-            st.success("AI index will be rebuilt on next search")
+            st.success("Defects will be re-indexed from DB on next load. Refresh the page.")
         
-        # Index documents
+        st.caption("Add new .docx, .pdf, .md, .txt to **knowledge_base/documents** and click below to index them for the Related Documents section.")
+        # Index documents (force_reindex=True so new .docx and other files in knowledge_base/documents are included)
         if st.button("📚 Index Knowledge Base", key="index_docs_btn"):
             try:
                 from modules.genai.enhanced_search import EnhancedSearch
                 enhanced_search = EnhancedSearch()
-                with st.spinner("Indexing documents..."):
-                    enhanced_search.document_search.load_and_index_documents()
-                st.success("Documents indexed successfully!")
+                with st.spinner("Indexing documents (including any new .docx, .pdf, .md, .txt in knowledge_base/documents)..."):
+                    enhanced_search.document_search.load_and_index_documents(force_reindex=True)
+                st.success("Documents indexed successfully! New documents will appear in Related Knowledge Documents when relevant.")
             except Exception as e:
                 st.error(f"Failed to index documents: {e}")
         

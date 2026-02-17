@@ -169,12 +169,14 @@ class ContextSummarizer:
         if not similar_defects:
             return insights
         
-        # Count resolved
+        # Count resolved using Status and DB Resolution column
+        resolved_keywords = ['closed', 'resolved', 'done', 'fixed', 'verified', 'complete']
         resolved_count = 0
         for sd in similar_defects:
             metadata = sd.get('metadata', {})
             status = str(metadata.get('status', '')).lower()
-            if 'closed' in status or 'resolved' in status or 'done' in status:
+            resolution = str(metadata.get('resolution', '')).lower()
+            if any(kw in status for kw in resolved_keywords) or any(kw in resolution for kw in resolved_keywords):
                 resolved_count += 1
         
         insights['resolved_count'] = resolved_count

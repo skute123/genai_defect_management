@@ -6,6 +6,7 @@ Orchestrates all GenAI components for comprehensive defect search.
 import logging
 import streamlit as st
 import pandas as pd
+from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, Any, List, Optional, Tuple
 from pathlib import Path
 
@@ -81,7 +82,8 @@ class EnhancedSearch:
         self,
         defects_acc: pd.DataFrame = None,
         defects_sit: pd.DataFrame = None,
-        index_documents: bool = True
+        index_documents: bool = True,
+        force_reindex: bool = False
     ):
         """
         Index defects and documents for search.
@@ -90,13 +92,14 @@ class EnhancedSearch:
             defects_acc: ACC defects DataFrame.
             defects_sit: SIT defects DataFrame.
             index_documents: Whether to also index knowledge documents.
+            force_reindex: If True, re-index defects from DB (clears cache). Use after DB dump update.
         """
-        # Index defects
+        # Index defects (force_reindex=True when DB was updated)
         if defects_acc is not None or defects_sit is not None:
-            self.defect_similarity.index_defects(defects_acc, defects_sit)
+            self.defect_similarity.index_defects(defects_acc, defects_sit, force_reindex=force_reindex)
         
-        # Index documents
-        if index_documents:
+        # Index documents (skip when only defect reindex to save time)
+        if index_documents and not force_reindex:
             self.document_search.load_and_index_documents()
     
     def search(
@@ -156,24 +159,35 @@ class EnhancedSearch:
         )
         results['related_documents'] = related_docs
         
-        # Step 3: Generate resolution suggestions (if we have similar defects)
+        # Steps 3 & 4: Resolution suggestions and context summary (run LLM parts in parallel to stay under 2 min)
+        query_defect = {'Summary': query, 'Description': query}
         if similar:
-            # Create a pseudo-defect from the query for resolution suggestions
-            query_defect = {'Summary': query, 'Description': query}
             results['resolution_suggestions'] = self.resolution_suggester.suggest_resolutions(
                 query_defect,
-                similar[:5]
-            )
-        
-        # Step 4: Generate context summary
-        if similar or related_docs:
-            query_defect = {'Summary': query, 'Description': query}
-            results['context_summary'] = self.context_summarizer.generate_summary(
-                query_defect,
                 similar[:5],
-                related_docs,
-                results['resolution_suggestions']
+                skip_llm=True
             )
+        else:
+            results['resolution_suggestions'] = {}
+        if similar or related_docs:
+            resolution_data = results['resolution_suggestions']
+            # Run LLM for resolution ai_suggestions and context summary in parallel
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                future_ai = executor.submit(
+                    self.resolution_suggester.fill_ai_suggestions,
+                    results['resolution_suggestions'],
+                    query_defect,
+                    similar[:5]
+                )
+                future_summary = executor.submit(
+                    self.context_summarizer.generate_summary,
+                    query_defect,
+                    similar[:5],
+                    related_docs,
+                    resolution_data
+                )
+                future_ai.result()
+                results['context_summary'] = future_summary.result()
         
         return results
     
@@ -398,13 +412,21 @@ def initialize_genai_system(defects_acc: pd.DataFrame = None, defects_sit: pd.Da
     
     enhanced_search = st.session_state['genai_system']
     
-    # Index data if not already done
-    if not st.session_state.get('genai_indexed', False):
+    # Index data if not already done, or force reindex after DB update
+    force_reindex = st.session_state.get('genai_force_reindex', False)
+    if not st.session_state.get('genai_indexed', False) or force_reindex:
         if defects_acc is not None or defects_sit is not None:
-            with st.spinner("📊 Indexing defects for AI search..."):
+            msg = "📊 Re-indexing defects from updated DB..." if force_reindex else "📊 Indexing defects for AI search..."
+            with st.spinner(msg):
                 try:
-                    enhanced_search.index_data(defects_acc, defects_sit)
+                    enhanced_search.index_data(
+                        defects_acc, defects_sit,
+                        index_documents=not force_reindex,
+                        force_reindex=force_reindex
+                    )
                     st.session_state['genai_indexed'] = True
+                    if force_reindex:
+                        st.session_state['genai_force_reindex'] = False
                 except Exception as e:
                     st.warning(f"Could not index data: {e}")
     

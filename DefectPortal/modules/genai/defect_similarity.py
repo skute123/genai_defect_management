@@ -84,9 +84,9 @@ class DefectSimilaritySearch:
             logger.info("Clearing old cache for fresh indexing...")
             self.vector_store.clear_defects()
         
-        # Generate embeddings in batches
+        # Generate embeddings in batches (larger batch = faster indexing)
         logger.info(f"Generating embeddings for {len(all_defects)} defects...")
-        batch_size = 100
+        batch_size = 256
         all_embeddings = []
         
         for i in range(0, len(all_texts), batch_size):
@@ -195,15 +195,14 @@ class DefectSimilaritySearch:
             exclude_self=True
         )
         
-        # Filter for resolved/closed defects
-        resolved_statuses = ['closed', 'resolved', 'done', 'fixed', 'verified']
+        # Filter for resolved/closed defects (use Status and DB Resolution column)
+        resolved_keywords = ['closed', 'resolved', 'done', 'fixed', 'verified']
         resolved = []
         
         for s in similar:
             status = s.get('metadata', {}).get('status', '').lower()
             resolution = s.get('metadata', {}).get('resolution', '').lower()
-            
-            if any(rs in status for rs in resolved_statuses) or resolution:
+            if any(rs in status for rs in resolved_keywords) or any(rs in resolution for rs in resolved_keywords):
                 resolved.append(s)
                 if len(resolved) >= n_results:
                     break

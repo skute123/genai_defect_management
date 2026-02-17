@@ -154,12 +154,20 @@ class DocumentSearch:
             return ""
     
     def _extract_docx_text(self, filepath: str) -> str:
-        """Extract text from DOCX file."""
+        """Extract text from DOCX file (paragraphs and tables)."""
         try:
             from docx import Document
             doc = Document(filepath)
-            paragraphs = [p.text for p in doc.paragraphs]
-            return "\n".join(paragraphs)
+            parts = []
+            for p in doc.paragraphs:
+                if p.text.strip():
+                    parts.append(p.text)
+            for table in doc.tables:
+                for row in table.rows:
+                    row_text = " | ".join(cell.text.strip() for cell in row.cells if cell.text.strip())
+                    if row_text:
+                        parts.append(row_text)
+            return "\n".join(parts)
         except ImportError:
             logger.warning("python-docx not installed, skipping DOCX files")
             return ""
@@ -214,19 +222,46 @@ class DocumentSearch:
                     return line.replace('#', '').strip()
         return ""
     
+    def _deduplicate_results_by_document(
+        self,
+        results: List[Dict[str, Any]],
+        n_results: int
+    ) -> List[Dict[str, Any]]:
+        """
+        Keep at most one chunk per document (by filename) so the same file
+        doesn't appear multiple times (e.g. three chunks from one PDF).
+        Preserves order; keeps the first (best) chunk per document.
+        """
+        seen = set()
+        unique = []
+        for r in results:
+            if len(unique) >= n_results:
+                break
+            meta = r.get('metadata', {})
+            filename = meta.get('filename') or meta.get('filepath') or r.get('id', '')
+            key = (filename,) if isinstance(filename, str) else tuple(filename) if filename else (r.get('id'),)
+            if key not in seen:
+                seen.add(key)
+                unique.append(r)
+        return unique
+
     def search(
         self,
         query: str,
         n_results: int = 3,
-        min_similarity: float = 0.3
+        min_similarity: float = 0.22
     ) -> List[Dict[str, Any]]:
         """
-        Search for relevant documents.
+        Search for relevant documents (semantic + keyword fallback for error-style queries).
+        
+        Uses a lower default min_similarity so technical/error queries (e.g. KIAS-SetMarketingPermissions)
+        still return related docs. If semantic search returns nothing, falls back to keyword
+        match so documents that contain the query terms are shown.
         
         Args:
             query: Search query text.
             n_results: Maximum number of results.
-            min_similarity: Minimum similarity threshold.
+            min_similarity: Minimum similarity threshold (0–1). Default 0.22 so error messages still match.
             
         Returns:
             List of relevant document chunks.
@@ -234,17 +269,23 @@ class DocumentSearch:
         if not query or not query.strip():
             return []
         
-        # Generate query embedding
+        # Semantic search (lower threshold so "An error was encountered while invoking KIAS-SetMarketingPermissions" can match)
         query_embedding = self.embedding_service.generate_embedding(query)
-        
-        # Search in vector store
         results = self.vector_store.search_documents(
             query_embedding,
             n_results=n_results,
             min_similarity=min_similarity
         )
         
-        return results
+        # If no semantic hits (e.g. long error message), use keyword fallback so docs containing
+        # terms like KIAS, SetMarketingPermissions still appear in Related Knowledge Documents
+        if not results:
+            results = self.vector_store.search_documents_by_keywords(query, n_results=n_results)
+            if results:
+                logger.info("Document search used keyword fallback for query terms")
+        
+        # Deduplicate by document (filename) so we don't show the same document 3 times
+        return self._deduplicate_results_by_document(results, n_results)
     
     def search_by_defect(
         self,

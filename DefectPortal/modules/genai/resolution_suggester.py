@@ -27,7 +27,8 @@ class ResolutionSuggester:
     def suggest_resolutions(
         self,
         defect: Dict[str, Any],
-        similar_defects: List[Dict[str, Any]]
+        similar_defects: List[Dict[str, Any]],
+        skip_llm: bool = False
     ) -> Dict[str, Any]:
         """
         Generate resolution suggestions for a defect.
@@ -35,6 +36,7 @@ class ResolutionSuggester:
         Args:
             defect: The current defect to suggest resolutions for.
             similar_defects: List of similar past defects.
+            skip_llm: If True, return suggestions and root_causes only (no LLM call). Use for parallel flow.
             
         Returns:
             Dictionary containing suggestions and analysis.
@@ -64,8 +66,8 @@ class ResolutionSuggester:
         root_causes = self._analyze_root_causes(resolved)
         result['root_causes'] = root_causes
         
-        # Generate AI suggestions if available
-        if self.llm_service.is_available():
+        # Generate AI suggestions if available (skip when skip_llm for parallel execution)
+        if not skip_llm and self.llm_service.is_available():
             try:
                 ai_text = self.llm_service.generate_resolution_suggestions(defect, resolved)
                 result['ai_suggestions'] = ai_text
@@ -73,9 +75,24 @@ class ResolutionSuggester:
                 logger.error(f"Failed to generate AI suggestions: {e}")
         
         return result
+
+    def fill_ai_suggestions(
+        self,
+        result: Dict[str, Any],
+        defect: Dict[str, Any],
+        similar_defects: List[Dict[str, Any]]
+    ) -> None:
+        """Fill result['ai_suggestions'] via LLM. Updates result in place. For use in parallel with context summary."""
+        resolved = [d for d in similar_defects if self._is_resolved(d)]
+        if not resolved or not self.llm_service.is_available():
+            return
+        try:
+            result['ai_suggestions'] = self.llm_service.generate_resolution_suggestions(defect, resolved)
+        except Exception as e:
+            logger.error(f"Failed to generate AI suggestions: {e}")
     
     def _is_resolved(self, defect: Dict[str, Any]) -> bool:
-        """Check if a defect is resolved."""
+        """Check if a defect is resolved (Status or DB Resolution column)."""
         metadata = defect.get('metadata', {})
         status = str(metadata.get('status', '')).lower()
         resolution = str(metadata.get('resolution', '')).lower()
@@ -85,7 +102,7 @@ class ResolutionSuggester:
         
         return (
             any(kw in status for kw in resolved_keywords) or
-            bool(resolution and resolution != 'nan') or
+            any(kw in resolution for kw in resolved_keywords) or
             bool(fix_desc and fix_desc != 'nan' and len(fix_desc) > 10)
         )
     

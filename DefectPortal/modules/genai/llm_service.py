@@ -60,7 +60,8 @@ class LLMService:
         self,
         prompt: str,
         max_tokens: int = 500,
-        temperature: float = 0.3
+        temperature: float = 0.3,
+        timeout: Optional[int] = None
     ) -> str:
         """
         Generate text using the LLM.
@@ -69,17 +70,25 @@ class LLMService:
             prompt: The prompt to send to the LLM.
             max_tokens: Maximum tokens to generate.
             temperature: Sampling temperature (0-1).
+            timeout: Request timeout in seconds. If None, uses instance default.
             
         Returns:
             Generated text.
         """
         if self.ollama_available:
-            return self._generate_ollama(prompt, max_tokens, temperature)
+            return self._generate_ollama(prompt, max_tokens, temperature, timeout)
         else:
             return self._generate_fallback(prompt)
     
-    def _generate_ollama(self, prompt: str, max_tokens: int, temperature: float) -> str:
+    def _generate_ollama(
+        self,
+        prompt: str,
+        max_tokens: int,
+        temperature: float,
+        timeout: Optional[int] = None
+    ) -> str:
         """Generate using Ollama API."""
+        req_timeout = timeout if timeout is not None else self.timeout
         try:
             response = requests.post(
                 f"{self.ollama_url}/api/generate",
@@ -92,7 +101,7 @@ class LLMService:
                         "temperature": temperature
                     }
                 },
-                timeout=self.timeout
+                timeout=req_timeout
             )
             
             if response.status_code == 200:
@@ -226,7 +235,7 @@ Similar Resolved Defects:
         
         prompt += "\nSuggest 3 specific resolution steps based on these similar defects:"
         
-        return self.generate(prompt)
+        return self.generate(prompt, max_tokens=200, timeout=30)
     
     def generate_context_summary(
         self,
@@ -260,7 +269,7 @@ Provide a 2-3 sentence summary including:
 3. Recommended next step
 """
         
-        return self.generate(prompt)
+        return self.generate(prompt, max_tokens=200, timeout=30)
     
     def is_available(self) -> bool:
         """Check if LLM service is available."""

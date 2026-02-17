@@ -129,6 +129,7 @@ class EmbeddingService:
             defect.get('Summary', ''),
             defect.get('Description', ''),
             defect.get('Custom field (OSF-Fix Description)', ''),
+            defect.get('Resolution', ''),
             defect.get('OSF-System', ''),
             defect.get('Comment', '')
         ]

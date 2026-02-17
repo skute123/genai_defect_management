@@ -51,9 +51,9 @@ def main():
             print("\n   No documents found. Add documents to the knowledge_base/documents folder.")
             return
         
-        # Index documents
+        # Index documents (force reindex so new .docx and other files are always included)
         print("\n4. Indexing documents...")
-        document_search.load_and_index_documents()
+        document_search.load_and_index_documents(force_reindex=True)
         
         # Show stats
         stats = vector_store.get_collection_stats()
