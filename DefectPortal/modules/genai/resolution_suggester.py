@@ -155,13 +155,9 @@ class ResolutionSuggester:
     
     def _analyze_root_causes(self, resolved_defects: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """
-        Analyze common root causes from similar defects.
-        
-        Args:
-            resolved_defects: List of resolved defects.
-            
-        Returns:
-            List of root cause patterns with frequencies.
+        Derive one common root cause from similar defects (from resolutions/fix text or keyword patterns).
+        Returns a single best root cause when possible; avoids generic "Investigation needed" when
+        matched defects have fix_description or resolution text.
         """
         # Keywords to look for in defect content
         cause_keywords = {
@@ -172,36 +168,58 @@ class ResolutionSuggester:
             'api': 'API Integration Issues',
             'configuration': 'Configuration Problems',
             'authentication': 'Authentication/Authorization Issues',
+            'permission': 'Permission/Authorization Issues',
             'memory': 'Memory/Resource Issues',
             'network': 'Network Connectivity Issues',
-            'data': 'Data Transformation/Format Issues'
+            'data': 'Data Transformation/Format Issues',
+            'error': 'Error/Exception Handling',
+            'integration': 'Integration/Service Issues',
         }
         
         cause_counts = Counter()
         
         for defect in resolved_defects:
             metadata = defect.get('metadata', {})
-            content = f"{metadata.get('summary', '')} {metadata.get('fix_description', '')}".lower()
+            content = f"{metadata.get('summary', '')} {metadata.get('fix_description', '')} {metadata.get('resolution', '')}".lower()
             
             for keyword, cause_name in cause_keywords.items():
                 if keyword in content:
                     cause_counts[cause_name] += 1
         
-        # Calculate percentages
         total = sum(cause_counts.values())
-        if total == 0:
-            return [{'cause': 'Investigation needed', 'percentage': 100, 'count': 0}]
+        if total > 0:
+            # Return single most common root cause (one common root cause from matched defects)
+            top_cause, top_count = cause_counts.most_common(1)[0]
+            percentage = round((top_count / len(resolved_defects)) * 100)
+            return [{'cause': top_cause, 'percentage': min(percentage, 100), 'count': top_count}]
         
-        root_causes = []
-        for cause, count in cause_counts.most_common(5):
-            percentage = round((count / total) * 100)
-            root_causes.append({
-                'cause': cause,
-                'percentage': percentage,
-                'count': count
-            })
+        # No keyword match: derive one root cause from top similar defect's fix/resolution text
+        for defect in resolved_defects:
+            metadata = defect.get('metadata', {})
+            fix_desc = (metadata.get('fix_description') or '').strip()
+            resolution = (metadata.get('resolution') or '').strip()
+            issue_key = metadata.get('issue_key', '')
+            
+            if fix_desc and str(fix_desc).lower() not in ('nan', 'none', '') and len(fix_desc) > 20:
+                # Use first sentence or first 220 chars as the common root cause
+                first_sentence = fix_desc.replace('\n', ' ').strip()
+                for sep in ('. ', '; ', '\n'):
+                    if sep in first_sentence:
+                        first_sentence = first_sentence.split(sep)[0].strip() + ('.' if sep == '. ' else '')
+                        break
+                first_sentence = (first_sentence[:220] + '…') if len(first_sentence) > 220 else first_sentence
+                if issue_key:
+                    return [{'cause': f"From similar defect {issue_key}: {first_sentence}", 'percentage': 100, 'count': 1}]
+                return [{'cause': first_sentence, 'percentage': 100, 'count': 1}]
+            
+            if resolution and str(resolution).lower() not in ('nan', 'none', 'unresolved', 'fixed', 'done', '') and len(resolution) > 15:
+                cause_text = resolution[:200] + ('…' if len(resolution) > 200 else '')
+                if issue_key:
+                    return [{'cause': f"From similar defect {issue_key}: {cause_text}", 'percentage': 100, 'count': 1}]
+                return [{'cause': cause_text, 'percentage': 100, 'count': 1}]
         
-        return root_causes
+        # No usable fix/resolution text: single placeholder (UI may hide or soften this)
+        return [{'cause': 'Investigation needed', 'percentage': 100, 'count': 0}]
     
     def _get_confidence(self, similarity: float) -> str:
         """Get confidence level based on similarity score."""
@@ -234,7 +252,7 @@ class ResolutionSuggester:
         
         # Root causes
         if suggestions_data.get('root_causes'):
-            output_parts.append("\n### Common Root Causes\n")
+            output_parts.append("\n### Common Root Cause\n")
             for rc in suggestions_data['root_causes']:
                 output_parts.append(f"• {rc['cause']} ({rc['percentage']}%)")
         

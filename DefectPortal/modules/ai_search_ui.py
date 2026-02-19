@@ -8,9 +8,66 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import logging
+from pathlib import Path
 from typing import Dict, Any, Optional, List
 
 logger = logging.getLogger(__name__)
+
+# Path to Recommended Logs Excel (under DefectPortal/data/)
+RECOMMENDED_LOGS_EXCEL = Path(__file__).resolve().parent.parent / "data" / "Recommended_Logs_for_Investigation.xlsx"
+# Knowledge base documents folder (for resolving current filenames after renames)
+KNOWLEDGE_BASE_DOCUMENTS = Path(__file__).resolve().parent.parent / "knowledge_base" / "documents"
+
+
+def _resolve_document_display_name(metadata: Dict[str, Any]) -> str:
+    """
+    Resolve the display filename from the file system so renames in knowledge_base/documents
+    are reflected in the GUI without re-indexing when possible.
+    """
+    stored_name = metadata.get('filename') or 'Unknown Document'
+    filepath = metadata.get('filepath', '')
+    if not filepath:
+        return stored_name
+    path = Path(filepath)
+    if path.is_file():
+        return path.name
+    # File was moved/renamed: if directory exists, look for single file with same extension
+    parent = path.parent
+    ext = path.suffix.lower()
+    if parent.is_dir() and ext:
+        try:
+            same_ext = [f.name for f in parent.iterdir() if f.is_file() and f.suffix.lower() == ext]
+            if len(same_ext) == 1:
+                return same_ext[0]
+        except OSError:
+            pass
+    return stored_name
+
+
+def _load_recommended_logs_for_query(query: str) -> pd.DataFrame:
+    """Load Recommended Logs Excel and filter rows where Error Description matches the AI search query."""
+    if not query or not query.strip():
+        return pd.DataFrame()
+    if not RECOMMENDED_LOGS_EXCEL.exists():
+        logger.warning("Recommended Logs Excel not found: %s", RECOMMENDED_LOGS_EXCEL)
+        return pd.DataFrame()
+    try:
+        df = pd.read_excel(RECOMMENDED_LOGS_EXCEL)
+        if df.empty or "Error Description" not in df.columns:
+            return df
+        q = str(query).strip().lower()
+        err_col = df["Error Description"].astype(str).str.lower()
+        # Match rows where query appears in Error Description
+        mask = err_col.str.contains(q, na=False, regex=False)
+        # Also match if any significant token from query (e.g. KIAS-SetMarketingPermissions) is in error
+        skip_words = {"error", "was", "while", "invoking", "encountered", "this", "that", "with", "for", "the", "and"}
+        for part in q.split():
+            if len(part) > 3 and part not in skip_words:
+                mask = mask | err_col.str.contains(part, na=False, regex=False)
+        return df.loc[mask].drop_duplicates().reset_index(drop=True)
+    except Exception as e:
+        logger.error("Failed to load Recommended Logs Excel: %s", e)
+        return pd.DataFrame()
 
 def render_ai_search_section(defect_data_acc: pd.DataFrame, defect_data_sit: pd.DataFrame):
     """
@@ -128,21 +185,86 @@ def display_ai_search_results(
     """
     query = results.get('query', '')
     
-    st.markdown("---")
-    st.markdown(f"### 🎯 AI Search Results for: *\"{query}\"*")
-    
-    # 1. AI Context Summary (First Section)
+    # 1. AI Context Summary (combined with AI Analysis, styled like AI Analysis callout)
     summary_data = results.get('context_summary', {})
-    if summary_data:
+    resolution_data = results.get('resolution_suggestions', {})
+    if summary_data or resolution_data.get('ai_suggestions'):
         st.markdown("---")
         st.markdown("### 1️⃣ AI Context Summary")
         
-        full_summary = summary_data.get('full_summary', '')
-        if full_summary:
-            st.markdown(full_summary)
+        # Build structured bulleted summary (skip generic "Unknown" overview; no **; user-friendly)
+        bullet_items = []
+        
+        if summary_data:
+            overview = summary_data.get('overview', '').strip()
+            # Skip generic placeholder like "This is a Unknown priority defect in Unknown system, currently Unknown."
+            if overview and not ('unknown priority' in overview.lower() and 'unknown system' in overview.lower()):
+                bullet_items.append(('summary', overview))
+            elif query and not bullet_items:
+                # When overview was skipped, use search query as context so the summary has clear defect context
+                bullet_items.append(('summary', f"Defect context: {query}"))
+            
+            full_summary = summary_data.get('full_summary', '').strip()
+            if full_summary:
+                bullet_items.append(('summary', full_summary))
+            
+            likely_cause = summary_data.get('likely_cause', '').strip()
+            if likely_cause:
+                bullet_items.append(('cause', likely_cause))
+            
+            recommended = summary_data.get('recommended_action', '').strip()
+            if recommended:
+                bullet_items.append(('action', recommended))
+        
+        ai_suggestions = resolution_data.get('ai_suggestions', '').strip()
+        if ai_suggestions:
+            bullet_items.append(('ai', ai_suggestions))
+        
+        ai_sub_lines = [ln.strip() for ln in ai_suggestions.splitlines() if ln.strip()] if ai_suggestions else []
+        
+        if bullet_items:
+            def esc(t):
+                return html.escape(str(t)).replace('\n', ' ')
+            
+            lines = []
+            for kind, text in bullet_items:
+                if not text and kind != 'ai':
+                    continue
+                if kind == 'summary':
+                    if text.strip().lower().startswith('defect context:'):
+                        rest = text.strip()[16:].strip()  # after "Defect context:"
+                        lines.append(f"<li style='margin-bottom: 8px;'><span style='color: #1565c0; font-weight: 600;'>Defect context:</span> <span style='color: #37474f;'>{esc(rest)}</span></li>")
+                    else:
+                        lines.append(f"<li style='margin-bottom: 8px;'><span style='color: #37474f;'>{esc(text)}</span></li>")
+                elif kind == 'cause':
+                    lines.append(f"<li style='margin-bottom: 8px;'><span style='color: #1565c0; font-weight: 600;'>Likely cause:</span> <span style='color: #37474f;'>{esc(text)}</span></li>")
+                elif kind == 'action':
+                    lines.append(f"<li style='margin-bottom: 8px;'><span style='color: #1565c0; font-weight: 600;'>Recommended action:</span> <span style='color: #37474f;'>{esc(text)}</span></li>")
+                elif kind == 'ai':
+                    if ai_sub_lines:
+                        sub = "".join(f"<li style='margin-bottom: 4px;'>{esc(ln)}</li>" for ln in ai_sub_lines)
+                        lines.append(f"<li style='margin-bottom: 4px;'><span style='color: #1565c0; font-weight: 600;'>Resolution suggestions:</span><ul style='margin: 6px 0 0 18px; padding-left: 12px;'>{sub}</ul></li>")
+                    else:
+                        lines.append(f"<li style='margin-bottom: 8px;'><span style='color: #1565c0; font-weight: 600;'>Resolution suggestions:</span> <span style='color: #37474f;'>{esc(ai_suggestions)}</span></li>")
+            
+            if lines:
+                list_html = "<ul style='margin: 0; padding-left: 20px; list-style-type: disc;'>" + "".join(lines) + "</ul>"
+                st.markdown(f"""
+                <div style="
+                    background-color: #e3f2fd;
+                    border-left: 4px solid #1976d2;
+                    padding: 16px 20px;
+                    margin: 12px 0 28px 0;
+                    border-radius: 8px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+                ">
+                    <strong style="color: #1565c0; font-size: 1.2rem;">💡 AI Context Summary & Analysis</strong>
+                    <div style="color: #37474f; line-height: 1.6; margin-top: 12px;">{list_html}</div>
+                </div>
+                """, unsafe_allow_html=True)
         
         # Historical Insights
-        insights = summary_data.get('historical_insights', {})
+        insights = (summary_data or {}).get('historical_insights', {})
         if insights.get('total_similar', 0) > 0:
             st.markdown("**📊 Historical Data:**")
             col1, col2, col3 = st.columns(3)
@@ -154,15 +276,11 @@ def display_ai_search_results(
             with col1:
                 st.metric("Similar Defects Found", total_similar)
             with col2:
-                # Handle 0% resolution rate with better messaging
-                if resolution_rate > 0:
-                    st.metric("Historical Resolution Rate", f"{resolution_rate}%")
-                else:
-                    st.metric("Historical Resolution Rate", "70%")
+                st.metric("Historical Resolution Rate", f"{resolution_rate}%")
             with col3:
                 st.metric("Average Similarity", f"{avg_similarity}%")
     
-    # 2. Matching Defects Section
+    # 2. Matching Defects Section (symmetric: cap SIT by ACC count so columns align)
     matching_acc = results.get('matching_defects', {}).get('acc', [])
     matching_sit = results.get('matching_defects', {}).get('sit', [])
     
@@ -170,12 +288,16 @@ def display_ai_search_results(
         st.markdown("---")
         st.markdown("### 2️⃣ Matching Defects")
         
+        n_acc = min(5, len(matching_acc))
+        # Symmetry: when ACC has fewer than 5, cap SIT by ACC count; when ACC is empty, SIT shows up to 5; if SIT has less, take as is
+        n_sit = min(n_acc, len(matching_sit)) if (matching_sit and n_acc > 0) else (min(5, len(matching_sit)) if matching_sit else 0)
+        
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("#### 🔴 ACC Defects")
             if matching_acc:
-                for defect in matching_acc[:5]:
+                for defect in matching_acc[:n_acc]:
                     display_defect_card(defect, "acc")
             else:
                 st.info("No matching ACC defects found")
@@ -183,18 +305,19 @@ def display_ai_search_results(
         with col2:
             st.markdown("#### 🟡 SIT Defects")
             if matching_sit:
-                for defect in matching_sit[:5]:
+                for defect in matching_sit[:n_sit]:
                     display_defect_card(defect, "sit")
             else:
                 st.info("No matching SIT defects found")
     
-    # 3. Similar Past Defects Section
-    similar_defects = matching_acc + matching_sit  # Combine for similar defects display
+    # 3. Similar Past Defects Section – top 5 by similarity from both ACC and SIT
+    combined = matching_acc + matching_sit
+    similar_defects = sorted(combined, key=lambda d: d.get('similarity', 0), reverse=True)[:5]
     if similar_defects:
         st.markdown("---")
         st.markdown("### 3️⃣ Similar Past Defects (for resolution insights)")
         
-        for i, defect in enumerate(similar_defects[:5], 1):
+        for i, defect in enumerate(similar_defects, 1):
             metadata = defect.get('metadata', {})
             similarity = defect.get('similarity', 0)
             status = metadata.get('status', 'Unknown')
@@ -230,12 +353,11 @@ def display_ai_search_results(
                 if source:
                     st.markdown(f"**Environment:** {source}")
     
-    # 4. AI Suggested Resolutions
+    # 4. AI Suggested Resolutions (suggestion cards + root causes; AI analysis text is in section 1)
     resolution_data = results.get('resolution_suggestions', {})
-    if resolution_data.get('suggestions') or resolution_data.get('root_causes') or resolution_data.get('ai_suggestions'):
+    if resolution_data.get('suggestions') or resolution_data.get('root_causes'):
         st.markdown("---")
         st.markdown("### 4️⃣ AI Suggested Resolutions")
-        st.caption("Based on similar past defects and AI analysis.")
         st.markdown("<div style='margin-bottom: 1rem;'></div>", unsafe_allow_html=True)
 
         # Suggestions – stacked cards (match level from similarity %)
@@ -282,14 +404,17 @@ def display_ai_search_results(
             </div>
             """, unsafe_allow_html=True)
 
-        # Root Causes – in expander with distinct (amber) colors
+        # Root Causes – single common root cause from matched defects (amber styling)
         root_causes = resolution_data.get('root_causes', [])
         if root_causes:
-            rc_lines = "".join(
-                f"<li style='margin-bottom: 6px;'><strong>{html.escape(str(rc['cause']))}</strong> — {rc['percentage']}%</li>"
-                for rc in root_causes[:3]
-            )
-            with st.expander("📋 Common Root Causes in Similar Defects", expanded=False):
+            single = root_causes[0]
+            cause_text = str(single.get('cause', '')).strip()
+            pct = single.get('percentage', 0)
+            if cause_text and cause_text.lower() == 'investigation needed':
+                display_text = "No common root cause could be determined from similar defects; review resolution suggestions above."
+            else:
+                display_text = f"<strong>{html.escape(cause_text)}</strong> — {pct}%"
+            with st.expander("📋 Common Root Cause in Similar Defects", expanded=False):
                 st.markdown(f"""
                 <div style="
                     background-color: #fff8e7;
@@ -299,73 +424,92 @@ def display_ai_search_results(
                     margin: 8px 0;
                 ">
                     <ul style="margin: 0; padding-left: 20px; color: #5d4037;">
-                        {rc_lines}
+                        <li style='margin-bottom: 6px;'>{display_text}</li>
                     </ul>
                 </div>
                 """, unsafe_allow_html=True)
 
-        # AI Analysis – blue callout
-        ai_suggestions = resolution_data.get('ai_suggestions', '')
-        if ai_suggestions:
-            ai_escaped = html.escape(ai_suggestions).replace('\n', '<br/>')
-            st.markdown(f"""
-            <div style="
-                background-color: #e3f2fd;
-                border-left: 4px solid #1976d2;
-                padding: 16px 20px;
-                margin: 12px 0;
-                border-radius: 8px;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            ">
-                <strong style="color: #1565c0; font-size: 1.2rem;">💡 AI Analysis</strong>
-                <div style="color: #37474f; line-height: 1.6; margin-top: 10px;">{ai_escaped}</div>
-            </div>
-            """, unsafe_allow_html=True)
+        # AI Analysis is now combined into AI Context Summary (section 1)
     
-    # 5. Related Knowledge Documents
+    # 5. Two sections in one row: Related Documents (narrow) | Recommended Logs (wider, all info visible)
+    st.markdown("---")
+    st.markdown("### 5️⃣ Related Knowledge Documents & Recommended Logs for Investigation")
+    st.markdown("")
     related_docs = results.get('related_documents', [])
-    if related_docs:
-        st.markdown("---")
-        st.markdown("### 5️⃣ Related Knowledge Documents")
-        
-        # SharePoint document URL
-        doc_base_url = "https://amdocs-my.sharepoint.com/:t:/r/personal/sudhikut_amdocs_com/Documents/Documents/GenAI/GenAI%20Defect%20Portal/genai_defect_management/DefectPortal/knowledge_base/documents"
-        doc_query_params = "?csf=1&web=1"
-        
-        for doc in related_docs[:3]:
-            metadata = doc.get('metadata', {})
-            filename = metadata.get('filename', 'Unknown Document')
-            relevance = doc.get('similarity', 0)
-            section = metadata.get('section', '')
-            content = doc.get('content', '')[:400]
-            filepath = metadata.get('filepath', '')
-            
-            # Create document link using filename (URL encode spaces)
-            filename_encoded = filename.replace(' ', '%20')
-            doc_link = f"{doc_base_url}/{filename_encoded}{doc_query_params}"
-            
-            with st.expander(f"📄 {filename} ({relevance}% relevance)"):
-                if section:
-                    st.markdown(f"**Section:** {section}")
-                
-                st.markdown("**Preview:**")
-                st.markdown(f"""
-                <div style="
-                    background-color: #fafafa;
-                    border: 1px solid #e0e0e0;
-                    padding: 12px;
-                    border-radius: 6px;
-                    color: #333333;
-                    font-size: 14px;
-                    line-height: 1.6;
-                ">
-                    {content}...
-                </div>
-                """, unsafe_allow_html=True)
-                
-                if filepath:
-                    st.markdown(f'📎 **File Path:** <a href="{doc_link}" target="_blank" style="color: #1a73e8;">{filepath}</a>', unsafe_allow_html=True)
-    
+    search_query = results.get('query', '')
+    logs_df = _load_recommended_logs_for_query(search_query)
+
+    # Narrower col for docs, thin separator, wider col for logs table
+    col_docs, col_sep, col_logs = st.columns([1, 0.03, 2])
+
+    with col_docs:
+        st.markdown("**📄 Related Knowledge Documents**")
+        if related_docs:
+            doc_base_url = "https://amdocs-my.sharepoint.com/:t:/r/personal/sudhikut_amdocs_com/Documents/Documents/GenAI/GenAI%20Defect%20Portal/genai_defect_management/DefectPortal/knowledge_base/documents"
+            doc_query_params = "?csf=1&web=1"
+            for doc in related_docs[:3]:
+                metadata = doc.get('metadata', {})
+                filename = _resolve_document_display_name(metadata)
+                relevance = doc.get('similarity', 0)
+                section = metadata.get('section', '')
+                content = doc.get('content', '')[:400]
+                filepath = metadata.get('filepath', '')
+                filename_encoded = filename.replace(' ', '%20')
+                doc_link = f"{doc_base_url}/{filename_encoded}{doc_query_params}"
+                with st.expander(f"📄 {filename} ({relevance}% relevance)"):
+                    if section:
+                        st.markdown(f"**Section:** {section}")
+                    st.markdown("**Preview:**")
+                    content_safe = html.escape(str(content)).replace('\n', '<br/>')
+                    st.markdown(f"""
+                    <div style="
+                        background-color: #fafafa;
+                        border: 1px solid #e0e0e0;
+                        padding: 12px;
+                        border-radius: 6px;
+                        color: #333333;
+                        font-size: 14px;
+                        line-height: 1.6;
+                    ">
+                        {content_safe}...
+                    </div>
+                    """, unsafe_allow_html=True)
+                    if filepath:
+                        st.markdown(f'📎 **File Path:** <a href="{doc_link}" target="_blank" style="color: #1a73e8;">{html.escape(filename)}</a>', unsafe_allow_html=True)
+        else:
+            st.info("No related documents found for this search.")
+
+    with col_sep:
+        st.markdown(
+            "<div style='"
+            "width: 4px; min-height: 200px; margin: 0 auto; "
+            "background: linear-gradient(90deg, #e85c4a 0%, #d94a3d 85%, #c43d32 100%); "
+            "box-shadow: 1px 0 2px rgba(0,0,0,0.15); "
+            "border-radius: 1px;"
+            "'></div>",
+            unsafe_allow_html=True,
+        )
+
+    with col_logs:
+        st.markdown("**🔍 Recommended Logs for Investigation**")
+        # st.markdown("")
+        if not logs_df.empty:
+            # Use column_config so long Error Description text wraps and stays visible
+            st.dataframe(
+                logs_df,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "Error Description": st.column_config.TextColumn("Error Description", width="large"),
+                    "OSE Logs API": st.column_config.TextColumn("OSE Logs API"),
+                    "OGW Logs API": st.column_config.TextColumn("OGW Logs API"),
+                    "OGW server": st.column_config.TextColumn("OGW server"),
+                    "Environment": st.column_config.TextColumn("Environment"),
+                },
+            )
+        else:
+            st.info("No recommended logs found for this search. Try a more specific error message (e.g. service or error code).")
+
     # 6. Insights & Analytics Visualization (Last Section)
     display_ai_search_visualizations(results)
 
@@ -373,14 +517,15 @@ def display_ai_search_results(
 def display_ai_search_visualizations(results: Dict[str, Any]):
     """
     Display visualizations based on AI search results with summary dashboard and expandable charts.
-    
-    Args:
-        results: The enhanced search results dictionary.
+    Uses the same symmetric subset as Matching Defects (cap SIT by ACC count) so insights match what is displayed.
     """
-    # Combine matching defects from ACC and SIT
     matching_acc = results.get('matching_defects', {}).get('acc', [])
     matching_sit = results.get('matching_defects', {}).get('sit', [])
-    all_defects = matching_acc + matching_sit
+    
+    # Use same counts as Matching Defects section so Insights reflect displayed data
+    n_acc = min(5, len(matching_acc))
+    n_sit = min(n_acc, len(matching_sit)) if (matching_sit and n_acc > 0) else (min(5, len(matching_sit)) if matching_sit else 0)
+    all_defects = matching_acc[:n_acc] + matching_sit[:n_sit]
     
     if not all_defects:
         return
@@ -545,6 +690,8 @@ def display_ai_search_visualizations(results: Dict[str, Any]):
         priority_counts.columns = ['Priority', 'Count']
         
         priority_order_list = ['1-Blocker', '2-Critical', '3-Major', '4-Minor', '5-Trivial']
+        # Dark red for 1-Blocker, then progressively lighter shades
+        priority_colors = ['#8B0000', '#b71c1c', '#c62828', '#e57373', '#ffcdd2']
         
         col_chart, col_table = st.columns([2, 1])
         with col_chart:
@@ -554,7 +701,11 @@ def display_ai_search_visualizations(results: Dict[str, Any]):
             ).encode(
                 x=alt.X('Priority:N', sort=priority_order_list, title='Priority'),
                 y=alt.Y('Count:Q', title='Number of Defects'),
-                color=alt.Color('Priority:N', scale=alt.Scale(scheme='reds'), legend=None),
+                color=alt.Color(
+                    'Priority:N',
+                    scale=alt.Scale(domain=priority_order_list, range=priority_colors),
+                    legend=None
+                ),
                 tooltip=['Priority', 'Count']
             ).properties(height=300)
             

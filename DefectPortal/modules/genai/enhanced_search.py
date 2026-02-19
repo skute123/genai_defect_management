@@ -3,6 +3,7 @@ Enhanced Search Module
 Orchestrates all GenAI components for comprehensive defect search.
 """
 
+import html
 import logging
 import streamlit as st
 import pandas as pd
@@ -11,6 +12,30 @@ from typing import Dict, Any, List, Optional, Tuple
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
+
+
+def _resolve_document_display_name(metadata: Dict[str, Any]) -> str:
+    """
+    Resolve the display filename from the file system so renames in knowledge_base/documents
+    are reflected in the GUI without re-indexing when possible.
+    """
+    stored_name = metadata.get('filename') or 'Unknown Document'
+    filepath = metadata.get('filepath', '')
+    if not filepath:
+        return stored_name
+    path = Path(filepath)
+    if path.is_file():
+        return path.name
+    parent = path.parent
+    ext = path.suffix.lower()
+    if parent.is_dir() and ext:
+        try:
+            same_ext = [f.name for f in parent.iterdir() if f.is_file() and f.suffix.lower() == ext]
+            if len(same_ext) == 1:
+                return same_ext[0]
+        except OSError:
+            pass
+    return stored_name
 
 class EnhancedSearch:
     """
@@ -171,7 +196,8 @@ class EnhancedSearch:
             results['resolution_suggestions'] = {}
         if similar or related_docs:
             resolution_data = results['resolution_suggestions']
-            # Run LLM for resolution ai_suggestions and context summary in parallel
+            # Run LLM for resolution ai_suggestions and context summary in parallel.
+            # Pass full similar list to context summary so Historical Data shows total matched count and dynamic resolution rate.
             with ThreadPoolExecutor(max_workers=2) as executor:
                 future_ai = executor.submit(
                     self.resolution_suggester.fill_ai_suggestions,
@@ -182,7 +208,7 @@ class EnhancedSearch:
                 future_summary = executor.submit(
                     self.context_summarizer.generate_summary,
                     query_defect,
-                    similar[:5],
+                    similar,
                     related_docs,
                     resolution_data
                 )
@@ -326,7 +352,7 @@ def display_enhanced_results(results: Dict[str, Any]):
         # Root causes
         root_causes = resolution.get('root_causes', [])
         if root_causes:
-            st.markdown("**⚠️ Common Root Causes in Similar Defects:**")
+            st.markdown("**⚠️ Common Root Cause in Similar Defects:**")
             for rc in root_causes[:3]:
                 st.markdown(f"- {rc['cause']} ({rc['percentage']}%)")
         
@@ -348,7 +374,7 @@ def display_enhanced_results(results: Dict[str, Any]):
         
         for doc in docs[:3]:
             metadata = doc.get('metadata', {})
-            filename = metadata.get('filename', 'Unknown Document')
+            filename = _resolve_document_display_name(metadata)
             relevance = doc.get('similarity', 0)
             section = metadata.get('section', '')
             content = doc.get('content', '')[:300]
@@ -364,7 +390,7 @@ def display_enhanced_results(results: Dict[str, Any]):
                 st.markdown(f"**Preview:** {content}...")
                 
                 if filepath:
-                    st.markdown(f'📎 **File Path:** <a href="{doc_link}" target="_blank" style="color: #1a73e8;">{filepath}</a>', unsafe_allow_html=True)
+                    st.markdown(f'📎 **File Path:** <a href="{doc_link}" target="_blank" style="color: #1a73e8;">{html.escape(filename)}</a>', unsafe_allow_html=True)
     
     # 4. Context Summary Section
     summary = results.get('context_summary', {})

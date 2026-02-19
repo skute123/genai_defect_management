@@ -1,0 +1,983 @@
+2026-02-19 13:43:45,787 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 13:43:45,787 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 13:43:45,788 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 13:43:45,788 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 13:43:45,792 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 13:43:45,793 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 13:43:45,794 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 13:43:45,794 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 13:43:47,732 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 13:43:47,732 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 13:43:47,736 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 13:43:47,737 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 13:43:47,737 INFO root: Streamlit app started
+2026-02-19 13:43:49,605 INFO root:  Database connection established successfully
+2026-02-19 13:43:49,695 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 13:43:49,702 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 13:43:49,720 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 13:43:49,727 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 13:43:49,900 INFO modules.genai.enhanced_search: Initializing GenAI services...
+2026-02-19 13:44:45,010 INFO modules.genai.embedding_service: Loading embedding model: all-MiniLM-L6-v2
+2026-02-19 13:44:45,012 INFO sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2026-02-19 13:44:45,012 INFO sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-19 13:44:46,063 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:46,153 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:46,794 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:46,888 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:47,513 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:47,603 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:48,334 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:48,436 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-02-19 13:44:48,772 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:48,863 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:49,189 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:49,279 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:49,623 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-02-19 13:44:49,968 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:50,393 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:50,497 ERROR root: Loading weights:   0%|                                                                 | 0/103 [00:00<?, ?it/s]
+2026-02-19 13:44:50,498 ERROR root: Loading weights:   1%|       | 1/103 [00:00<00:00, 13530.01it/s, Materializing param=embeddings.LayerNorm.bias]
+2026-02-19 13:44:50,498 ERROR root: Loading weights:   1%|        | 1/103 [00:00<00:00, 2040.03it/s, Materializing param=embeddings.LayerNorm.bias]
+2026-02-19 13:44:50,499 ERROR root: Loading weights:   2%|1     | 2/103 [00:00<00:00, 2605.97it/s, Materializing param=embeddings.LayerNorm.weight]
+2026-02-19 13:44:50,499 ERROR root: Loading weights:   2%|1     | 2/103 [00:00<00:00, 2154.24it/s, Materializing param=embeddings.LayerNorm.weight]
+2026-02-19 13:44:50,500 ERROR root: Loading weights:   3%| | 3/103 [00:00<00:00, 1388.08it/s, Materializing param=embeddings.position_embeddings.we
+2026-02-19 13:44:50,500 ERROR root: Loading weights:   3%| | 3/103 [00:00<00:00, 1123.67it/s, Materializing param=embeddings.position_embeddings.we
+2026-02-19 13:44:50,501 ERROR root: Loading weights:   4%| | 4/103 [00:00<00:00, 1303.59it/s, Materializing param=embeddings.token_type_embeddings.
+2026-02-19 13:44:50,501 ERROR root: Loading weights:   4%| | 4/103 [00:00<00:00, 1154.18it/s, Materializing param=embeddings.token_type_embeddings.
+2026-02-19 13:44:50,502 ERROR root: Loading weights:   5%| | 5/103 [00:00<00:00, 1322.71it/s, Materializing param=embeddings.word_embeddings.weight
+2026-02-19 13:44:50,502 ERROR root: Loading weights:   5%| | 5/103 [00:00<00:00, 1232.97it/s, Materializing param=embeddings.word_embeddings.weight
+2026-02-19 13:44:50,502 ERROR root: Loading weights:   6%| | 6/103 [00:00<00:00, 1397.71it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,502 ERROR root: Loading weights:   6%| | 6/103 [00:00<00:00, 1321.67it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,503 ERROR root: Loading weights:   7%| | 7/103 [00:00<00:00, 1429.27it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,503 ERROR root: Loading weights:   7%| | 7/103 [00:00<00:00, 1403.58it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,503 ERROR root: Loading weights:   8%| | 8/103 [00:00<00:00, 1457.87it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,503 ERROR root: Loading weights:   8%| | 8/103 [00:00<00:00, 1410.98it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,504 ERROR root: Loading weights:   9%| | 9/103 [00:00<00:00, 1482.84it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,504 ERROR root: Loading weights:   9%| | 9/103 [00:00<00:00, 1454.78it/s, Materializing param=encoder.layer.0.attention.output.
+2026-02-19 13:44:50,504 ERROR root: Loading weights:  10%| | 10/103 [00:00<00:00, 1519.18it/s, Materializing param=encoder.layer.0.attention.self.k
+2026-02-19 13:44:50,505 ERROR root: Loading weights:  10%| | 10/103 [00:00<00:00, 1425.71it/s, Materializing param=encoder.layer.0.attention.self.k
+2026-02-19 13:44:50,505 ERROR root: Loading weights:  11%|1| 11/103 [00:00<00:00, 1456.49it/s, Materializing param=encoder.layer.0.attention.self.k
+2026-02-19 13:44:50,505 ERROR root: Loading weights:  11%|1| 11/103 [00:00<00:00, 1441.66it/s, Materializing param=encoder.layer.0.attention.self.k
+2026-02-19 13:44:50,506 ERROR root: Loading weights:  12%|1| 12/103 [00:00<00:00, 1462.49it/s, Materializing param=encoder.layer.0.attention.self.q
+2026-02-19 13:44:50,506 ERROR root: Loading weights:  12%|1| 12/103 [00:00<00:00, 1434.36it/s, Materializing param=encoder.layer.0.attention.self.q
+2026-02-19 13:44:50,507 ERROR root: Loading weights:  13%|1| 13/103 [00:00<00:00, 1441.65it/s, Materializing param=encoder.layer.0.attention.self.q
+2026-02-19 13:44:50,507 ERROR root: Loading weights:  13%|1| 13/103 [00:00<00:00, 1397.92it/s, Materializing param=encoder.layer.0.attention.self.q
+2026-02-19 13:44:50,507 ERROR root: Loading weights:  14%|1| 14/103 [00:00<00:00, 1462.16it/s, Materializing param=encoder.layer.0.attention.self.v
+2026-02-19 13:44:50,507 ERROR root: Loading weights:  14%|1| 14/103 [00:00<00:00, 1448.95it/s, Materializing param=encoder.layer.0.attention.self.v
+2026-02-19 13:44:50,508 ERROR root: Loading weights:  15%|1| 15/103 [00:00<00:00, 1534.61it/s, Materializing param=encoder.layer.0.attention.self.v
+2026-02-19 13:44:50,508 ERROR root: Loading weights:  15%|1| 15/103 [00:00<00:00, 1524.46it/s, Materializing param=encoder.layer.0.attention.self.v
+2026-02-19 13:44:50,508 ERROR root: Loading weights:  16%|1| 16/103 [00:00<00:00, 1596.99it/s, Materializing param=encoder.layer.0.intermediate.den
+2026-02-19 13:44:50,508 ERROR root: Loading weights:  16%|1| 16/103 [00:00<00:00, 1576.14it/s, Materializing param=encoder.layer.0.intermediate.den
+2026-02-19 13:44:50,508 ERROR root: Loading weights:  17%|1| 17/103 [00:00<00:00, 1606.94it/s, Materializing param=encoder.layer.0.intermediate.den
+2026-02-19 13:44:50,508 ERROR root: Loading weights:  17%|1| 17/103 [00:00<00:00, 1586.42it/s, Materializing param=encoder.layer.0.intermediate.den
+2026-02-19 13:44:50,509 ERROR root: Loading weights:  17%|1| 18/103 [00:00<00:00, 1596.11it/s, Materializing param=encoder.layer.0.output.LayerNorm
+2026-02-19 13:44:50,509 ERROR root: Loading weights:  17%|1| 18/103 [00:00<00:00, 1569.99it/s, Materializing param=encoder.layer.0.output.LayerNorm
+2026-02-19 13:44:50,510 ERROR root: Loading weights:  18%|1| 19/103 [00:00<00:00, 1577.62it/s, Materializing param=encoder.layer.0.output.LayerNorm
+2026-02-19 13:44:50,510 ERROR root: Loading weights:  18%|1| 19/103 [00:00<00:00, 1566.79it/s, Materializing param=encoder.layer.0.output.LayerNorm
+2026-02-19 13:44:50,510 ERROR root: Loading weights:  19%|1| 20/103 [00:00<00:00, 1627.18it/s, Materializing param=encoder.layer.0.output.dense.bia
+2026-02-19 13:44:50,510 ERROR root: Loading weights:  19%|1| 20/103 [00:00<00:00, 1618.36it/s, Materializing param=encoder.layer.0.output.dense.bia
+2026-02-19 13:44:50,510 ERROR root: Loading weights:  20%|2| 21/103 [00:00<00:00, 1667.84it/s, Materializing param=encoder.layer.0.output.dense.wei
+2026-02-19 13:44:50,510 ERROR root: Loading weights:  20%|2| 21/103 [00:00<00:00, 1648.70it/s, Materializing param=encoder.layer.0.output.dense.wei
+2026-02-19 13:44:50,511 ERROR root: Loading weights:  21%|2| 22/103 [00:00<00:00, 1691.62it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,511 ERROR root: Loading weights:  21%|2| 22/103 [00:00<00:00, 1671.22it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,511 ERROR root: Loading weights:  22%|2| 23/103 [00:00<00:00, 1700.34it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,511 ERROR root: Loading weights:  22%|2| 23/103 [00:00<00:00, 1683.25it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,512 ERROR root: Loading weights:  23%|2| 24/103 [00:00<00:00, 1720.18it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,512 ERROR root: Loading weights:  23%|2| 24/103 [00:00<00:00, 1698.93it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,512 ERROR root: Loading weights:  24%|2| 25/103 [00:00<00:00, 1736.11it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,512 ERROR root: Loading weights:  24%|2| 25/103 [00:00<00:00, 1715.80it/s, Materializing param=encoder.layer.1.attention.output
+2026-02-19 13:44:50,513 ERROR root: Loading weights:  25%|2| 26/103 [00:00<00:00, 1712.44it/s, Materializing param=encoder.layer.1.attention.self.k
+2026-02-19 13:44:50,513 ERROR root: Loading weights:  25%|2| 26/103 [00:00<00:00, 1684.23it/s, Materializing param=encoder.layer.1.attention.self.k
+2026-02-19 13:44:50,514 ERROR root: Loading weights:  26%|2| 27/103 [00:00<00:00, 1703.92it/s, Materializing param=encoder.layer.1.attention.self.k
+2026-02-19 13:44:50,514 ERROR root: Loading weights:  26%|2| 27/103 [00:00<00:00, 1683.68it/s, Materializing param=encoder.layer.1.attention.self.k
+2026-02-19 13:44:50,514 ERROR root: Loading weights:  27%|2| 28/103 [00:00<00:00, 1675.93it/s, Materializing param=encoder.layer.1.attention.self.q
+2026-02-19 13:44:50,515 ERROR root: Loading weights:  27%|2| 28/103 [00:00<00:00, 1621.14it/s, Materializing param=encoder.layer.1.attention.self.q
+2026-02-19 13:44:50,516 ERROR root: Loading weights:  28%|2| 29/103 [00:00<00:00, 1622.60it/s, Materializing param=encoder.layer.1.attention.self.q
+2026-02-19 13:44:50,516 ERROR root: Loading weights:  28%|2| 29/103 [00:00<00:00, 1576.66it/s, Materializing param=encoder.layer.1.attention.self.q
+2026-02-19 13:44:50,517 ERROR root: Loading weights:  29%|2| 30/103 [00:00<00:00, 1591.02it/s, Materializing param=encoder.layer.1.attention.self.v
+2026-02-19 13:44:50,517 ERROR root: Loading weights:  29%|2| 30/103 [00:00<00:00, 1535.89it/s, Materializing param=encoder.layer.1.attention.self.v
+2026-02-19 13:44:50,518 ERROR root: Loading weights:  30%|3| 31/103 [00:00<00:00, 1546.20it/s, Materializing param=encoder.layer.1.attention.self.v
+2026-02-19 13:44:50,518 ERROR root: Loading weights:  30%|3| 31/103 [00:00<00:00, 1533.11it/s, Materializing param=encoder.layer.1.attention.self.v
+2026-02-19 13:44:50,518 ERROR root: Loading weights:  31%|3| 32/103 [00:00<00:00, 1563.22it/s, Materializing param=encoder.layer.1.intermediate.den
+2026-02-19 13:44:50,519 ERROR root: Loading weights:  31%|3| 32/103 [00:00<00:00, 1537.68it/s, Materializing param=encoder.layer.1.intermediate.den
+2026-02-19 13:44:50,519 ERROR root: Loading weights:  32%|3| 33/103 [00:00<00:00, 1555.58it/s, Materializing param=encoder.layer.1.intermediate.den
+2026-02-19 13:44:50,519 ERROR root: Loading weights:  32%|3| 33/103 [00:00<00:00, 1538.32it/s, Materializing param=encoder.layer.1.intermediate.den
+2026-02-19 13:44:50,520 ERROR root: Loading weights:  33%|3| 34/103 [00:00<00:00, 1564.18it/s, Materializing param=encoder.layer.1.output.LayerNorm
+2026-02-19 13:44:50,520 ERROR root: Loading weights:  33%|3| 34/103 [00:00<00:00, 1554.36it/s, Materializing param=encoder.layer.1.output.LayerNorm
+2026-02-19 13:44:50,520 ERROR root: Loading weights:  34%|3| 35/103 [00:00<00:00, 1571.86it/s, Materializing param=encoder.layer.1.output.LayerNorm
+2026-02-19 13:44:50,520 ERROR root: Loading weights:  34%|3| 35/103 [00:00<00:00, 1562.51it/s, Materializing param=encoder.layer.1.output.LayerNorm
+2026-02-19 13:44:50,521 ERROR root: Loading weights:  35%|3| 36/103 [00:00<00:00, 1574.65it/s, Materializing param=encoder.layer.1.output.dense.bia
+2026-02-19 13:44:50,521 ERROR root: Loading weights:  35%|3| 36/103 [00:00<00:00, 1567.52it/s, Materializing param=encoder.layer.1.output.dense.bia
+2026-02-19 13:44:50,521 ERROR root: Loading weights:  36%|3| 37/103 [00:00<00:00, 1593.97it/s, Materializing param=encoder.layer.1.output.dense.wei
+2026-02-19 13:44:50,521 ERROR root: Loading weights:  36%|3| 37/103 [00:00<00:00, 1581.82it/s, Materializing param=encoder.layer.1.output.dense.wei
+2026-02-19 13:44:50,521 ERROR root: Loading weights:  37%|3| 38/103 [00:00<00:00, 1609.67it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,522 ERROR root: Loading weights:  37%|3| 38/103 [00:00<00:00, 1600.09it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,522 ERROR root: Loading weights:  38%|3| 39/103 [00:00<00:00, 1630.11it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,522 ERROR root: Loading weights:  38%|3| 39/103 [00:00<00:00, 1618.80it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,522 ERROR root: Loading weights:  39%|3| 40/103 [00:00<00:00, 1648.75it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,522 ERROR root: Loading weights:  39%|3| 40/103 [00:00<00:00, 1640.19it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,522 ERROR root: Loading weights:  40%|3| 41/103 [00:00<00:00, 1670.36it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,522 ERROR root: Loading weights:  40%|3| 41/103 [00:00<00:00, 1662.43it/s, Materializing param=encoder.layer.2.attention.output
+2026-02-19 13:44:50,523 ERROR root: Loading weights:  41%|4| 42/103 [00:00<00:00, 1690.76it/s, Materializing param=encoder.layer.2.attention.self.k
+2026-02-19 13:44:50,523 ERROR root: Loading weights:  41%|4| 42/103 [00:00<00:00, 1682.91it/s, Materializing param=encoder.layer.2.attention.self.k
+2026-02-19 13:44:50,523 ERROR root: Loading weights:  42%|4| 43/103 [00:00<00:00, 1707.39it/s, Materializing param=encoder.layer.2.attention.self.k
+2026-02-19 13:44:50,523 ERROR root: Loading weights:  42%|4| 43/103 [00:00<00:00, 1697.56it/s, Materializing param=encoder.layer.2.attention.self.k
+2026-02-19 13:44:50,524 ERROR root: Loading weights:  43%|4| 44/103 [00:00<00:00, 1712.55it/s, Materializing param=encoder.layer.2.attention.self.q
+2026-02-19 13:44:50,524 ERROR root: Loading weights:  43%|4| 44/103 [00:00<00:00, 1695.98it/s, Materializing param=encoder.layer.2.attention.self.q
+2026-02-19 13:44:50,524 ERROR root: Loading weights:  44%|4| 45/103 [00:00<00:00, 1720.29it/s, Materializing param=encoder.layer.2.attention.self.q
+2026-02-19 13:44:50,524 ERROR root: Loading weights:  44%|4| 45/103 [00:00<00:00, 1713.16it/s, Materializing param=encoder.layer.2.attention.self.q
+2026-02-19 13:44:50,524 ERROR root: Loading weights:  45%|4| 46/103 [00:00<00:00, 1737.62it/s, Materializing param=encoder.layer.2.attention.self.v
+2026-02-19 13:44:50,525 ERROR root: Loading weights:  45%|4| 46/103 [00:00<00:00, 1723.51it/s, Materializing param=encoder.layer.2.attention.self.v
+2026-02-19 13:44:50,525 ERROR root: Loading weights:  46%|4| 47/103 [00:00<00:00, 1743.33it/s, Materializing param=encoder.layer.2.attention.self.v
+2026-02-19 13:44:50,525 ERROR root: Loading weights:  46%|4| 47/103 [00:00<00:00, 1732.57it/s, Materializing param=encoder.layer.2.attention.self.v
+2026-02-19 13:44:50,525 ERROR root: Loading weights:  47%|4| 48/103 [00:00<00:00, 1756.00it/s, Materializing param=encoder.layer.2.intermediate.den
+2026-02-19 13:44:50,525 ERROR root: Loading weights:  47%|4| 48/103 [00:00<00:00, 1749.21it/s, Materializing param=encoder.layer.2.intermediate.den
+2026-02-19 13:44:50,525 ERROR root: Loading weights:  48%|4| 49/103 [00:00<00:00, 1776.46it/s, Materializing param=encoder.layer.2.intermediate.den
+2026-02-19 13:44:50,525 ERROR root: Loading weights:  48%|4| 49/103 [00:00<00:00, 1770.01it/s, Materializing param=encoder.layer.2.intermediate.den
+2026-02-19 13:44:50,526 ERROR root: Loading weights:  49%|4| 50/103 [00:00<00:00, 1797.06it/s, Materializing param=encoder.layer.2.output.LayerNorm
+2026-02-19 13:44:50,526 ERROR root: Loading weights:  49%|4| 50/103 [00:00<00:00, 1788.43it/s, Materializing param=encoder.layer.2.output.LayerNorm
+2026-02-19 13:44:50,526 ERROR root: Loading weights:  50%|4| 51/103 [00:00<00:00, 1811.66it/s, Materializing param=encoder.layer.2.output.LayerNorm
+2026-02-19 13:44:50,526 ERROR root: Loading weights:  50%|4| 51/103 [00:00<00:00, 1803.18it/s, Materializing param=encoder.layer.2.output.LayerNorm
+2026-02-19 13:44:50,526 ERROR root: Loading weights:  50%|5| 52/103 [00:00<00:00, 1825.81it/s, Materializing param=encoder.layer.2.output.dense.bia
+2026-02-19 13:44:50,526 ERROR root: Loading weights:  50%|5| 52/103 [00:00<00:00, 1816.76it/s, Materializing param=encoder.layer.2.output.dense.bia
+2026-02-19 13:44:50,527 ERROR root: Loading weights:  51%|5| 53/103 [00:00<00:00, 1838.65it/s, Materializing param=encoder.layer.2.output.dense.wei
+2026-02-19 13:44:50,527 ERROR root: Loading weights:  51%|5| 53/103 [00:00<00:00, 1827.81it/s, Materializing param=encoder.layer.2.output.dense.wei
+2026-02-19 13:44:50,527 ERROR root: Loading weights:  52%|5| 54/103 [00:00<00:00, 1849.25it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,527 ERROR root: Loading weights:  52%|5| 54/103 [00:00<00:00, 1839.91it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,527 ERROR root: Loading weights:  53%|5| 55/103 [00:00<00:00, 1861.01it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,527 ERROR root: Loading weights:  53%|5| 55/103 [00:00<00:00, 1851.82it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,528 ERROR root: Loading weights:  54%|5| 56/103 [00:00<00:00, 1872.86it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,528 ERROR root: Loading weights:  54%|5| 56/103 [00:00<00:00, 1865.20it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,528 ERROR root: Loading weights:  55%|5| 57/103 [00:00<00:00, 1889.07it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,528 ERROR root: Loading weights:  55%|5| 57/103 [00:00<00:00, 1882.84it/s, Materializing param=encoder.layer.3.attention.output
+2026-02-19 13:44:50,528 ERROR root: Loading weights:  56%|5| 58/103 [00:00<00:00, 1907.01it/s, Materializing param=encoder.layer.3.attention.self.k
+2026-02-19 13:44:50,528 ERROR root: Loading weights:  56%|5| 58/103 [00:00<00:00, 1900.90it/s, Materializing param=encoder.layer.3.attention.self.k
+2026-02-19 13:44:50,528 ERROR root: Loading weights:  57%|5| 59/103 [00:00<00:00, 1924.82it/s, Materializing param=encoder.layer.3.attention.self.k
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  57%|5| 59/103 [00:00<00:00, 1918.64it/s, Materializing param=encoder.layer.3.attention.self.k
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  58%|5| 60/103 [00:00<00:00, 1942.45it/s, Materializing param=encoder.layer.3.attention.self.q
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  58%|5| 60/103 [00:00<00:00, 1934.88it/s, Materializing param=encoder.layer.3.attention.self.q
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  59%|5| 61/103 [00:00<00:00, 1957.41it/s, Materializing param=encoder.layer.3.attention.self.q
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  59%|5| 61/103 [00:00<00:00, 1951.09it/s, Materializing param=encoder.layer.3.attention.self.q
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  60%|6| 62/103 [00:00<00:00, 1974.49it/s, Materializing param=encoder.layer.3.attention.self.v
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  60%|6| 62/103 [00:00<00:00, 1968.38it/s, Materializing param=encoder.layer.3.attention.self.v
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  61%|6| 63/103 [00:00<00:00, 1991.60it/s, Materializing param=encoder.layer.3.attention.self.v
+2026-02-19 13:44:50,529 ERROR root: Loading weights:  61%|6| 63/103 [00:00<00:00, 1985.43it/s, Materializing param=encoder.layer.3.attention.self.v
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  62%|6| 64/103 [00:00<00:00, 2008.36it/s, Materializing param=encoder.layer.3.intermediate.den
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  62%|6| 64/103 [00:00<00:00, 2001.10it/s, Materializing param=encoder.layer.3.intermediate.den
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  63%|6| 65/103 [00:00<00:00, 2022.55it/s, Materializing param=encoder.layer.3.intermediate.den
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  63%|6| 65/103 [00:00<00:00, 2016.30it/s, Materializing param=encoder.layer.3.intermediate.den
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  64%|6| 66/103 [00:00<00:00, 2038.72it/s, Materializing param=encoder.layer.3.output.LayerNorm
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  64%|6| 66/103 [00:00<00:00, 2032.62it/s, Materializing param=encoder.layer.3.output.LayerNorm
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  65%|6| 67/103 [00:00<00:00, 2054.56it/s, Materializing param=encoder.layer.3.output.LayerNorm
+2026-02-19 13:44:50,530 ERROR root: Loading weights:  65%|6| 67/103 [00:00<00:00, 2048.15it/s, Materializing param=encoder.layer.3.output.LayerNorm
+2026-02-19 13:44:50,531 ERROR root: Loading weights:  66%|6| 68/103 [00:00<00:00, 2070.12it/s, Materializing param=encoder.layer.3.output.dense.bia
+2026-02-19 13:44:50,531 ERROR root: Loading weights:  66%|6| 68/103 [00:00<00:00, 2055.23it/s, Materializing param=encoder.layer.3.output.dense.bia
+2026-02-19 13:44:50,531 ERROR root: Loading weights:  67%|6| 69/103 [00:00<00:00, 2072.70it/s, Materializing param=encoder.layer.3.output.dense.wei
+2026-02-19 13:44:50,531 ERROR root: Loading weights:  67%|6| 69/103 [00:00<00:00, 2059.06it/s, Materializing param=encoder.layer.3.output.dense.wei
+2026-02-19 13:44:50,531 ERROR root: Loading weights:  68%|6| 70/103 [00:00<00:00, 2076.18it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  68%|6| 70/103 [00:00<00:00, 2071.66it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  69%|6| 71/103 [00:00<00:00, 2095.62it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  69%|6| 71/103 [00:00<00:00, 2087.71it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  70%|6| 72/103 [00:00<00:00, 2108.94it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  70%|6| 72/103 [00:00<00:00, 2104.53it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  71%|7| 73/103 [00:00<00:00, 2127.80it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  71%|7| 73/103 [00:00<00:00, 2123.89it/s, Materializing param=encoder.layer.4.attention.output
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  72%|7| 74/103 [00:00<00:00, 2147.47it/s, Materializing param=encoder.layer.4.attention.self.k
+2026-02-19 13:44:50,532 ERROR root: Loading weights:  72%|7| 74/103 [00:00<00:00, 2143.81it/s, Materializing param=encoder.layer.4.attention.self.k
+2026-02-19 13:44:50,533 ERROR root: Loading weights:  73%|7| 75/103 [00:00<00:00, 2147.46it/s, Materializing param=encoder.layer.4.attention.self.k
+2026-02-19 13:44:50,533 ERROR root: Loading weights:  73%|7| 75/103 [00:00<00:00, 2133.12it/s, Materializing param=encoder.layer.4.attention.self.k
+2026-02-19 13:44:50,533 ERROR root: Loading weights:  74%|7| 76/103 [00:00<00:00, 2143.75it/s, Materializing param=encoder.layer.4.attention.self.q
+2026-02-19 13:44:50,533 ERROR root: Loading weights:  74%|7| 76/103 [00:00<00:00, 2137.86it/s, Materializing param=encoder.layer.4.attention.self.q
+2026-02-19 13:44:50,533 ERROR root: Loading weights:  75%|7| 77/103 [00:00<00:00, 2157.36it/s, Materializing param=encoder.layer.4.attention.self.q
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  75%|7| 77/103 [00:00<00:00, 2151.70it/s, Materializing param=encoder.layer.4.attention.self.q
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  76%|7| 78/103 [00:00<00:00, 2173.58it/s, Materializing param=encoder.layer.4.attention.self.v
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  76%|7| 78/103 [00:00<00:00, 2169.90it/s, Materializing param=encoder.layer.4.attention.self.v
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  77%|7| 79/103 [00:00<00:00, 2192.25it/s, Materializing param=encoder.layer.4.attention.self.v
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  77%|7| 79/103 [00:00<00:00, 2188.65it/s, Materializing param=encoder.layer.4.attention.self.v
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  78%|7| 80/103 [00:00<00:00, 2211.28it/s, Materializing param=encoder.layer.4.intermediate.den
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  78%|7| 80/103 [00:00<00:00, 2207.53it/s, Materializing param=encoder.layer.4.intermediate.den
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  79%|7| 81/103 [00:00<00:00, 2229.87it/s, Materializing param=encoder.layer.4.intermediate.den
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  79%|7| 81/103 [00:00<00:00, 2226.19it/s, Materializing param=encoder.layer.4.intermediate.den
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  80%|7| 82/103 [00:00<00:00, 2248.68it/s, Materializing param=encoder.layer.4.output.LayerNorm
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  80%|7| 82/103 [00:00<00:00, 2245.07it/s, Materializing param=encoder.layer.4.output.LayerNorm
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  81%|8| 83/103 [00:00<00:00, 2267.07it/s, Materializing param=encoder.layer.4.output.LayerNorm
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  81%|8| 83/103 [00:00<00:00, 2263.40it/s, Materializing param=encoder.layer.4.output.LayerNorm
+2026-02-19 13:44:50,534 ERROR root: Loading weights:  82%|8| 84/103 [00:00<00:00, 2284.88it/s, Materializing param=encoder.layer.4.output.dense.bia
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  82%|8| 84/103 [00:00<00:00, 2280.21it/s, Materializing param=encoder.layer.4.output.dense.bia
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  83%|8| 85/103 [00:00<00:00, 2301.62it/s, Materializing param=encoder.layer.4.output.dense.wei
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  83%|8| 85/103 [00:00<00:00, 2297.88it/s, Materializing param=encoder.layer.4.output.dense.wei
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  83%|8| 86/103 [00:00<00:00, 2319.49it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  83%|8| 86/103 [00:00<00:00, 2315.27it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  84%|8| 87/103 [00:00<00:00, 2333.60it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  84%|8| 87/103 [00:00<00:00, 2328.76it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  85%|8| 88/103 [00:00<00:00, 2349.23it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  85%|8| 88/103 [00:00<00:00, 2344.17it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  86%|8| 89/103 [00:00<00:00, 2364.60it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,535 ERROR root: Loading weights:  86%|8| 89/103 [00:00<00:00, 2360.03it/s, Materializing param=encoder.layer.5.attention.output
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  87%|8| 90/103 [00:00<00:00, 2379.40it/s, Materializing param=encoder.layer.5.attention.self.k
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  87%|8| 90/103 [00:00<00:00, 2374.88it/s, Materializing param=encoder.layer.5.attention.self.k
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  88%|8| 91/103 [00:00<00:00, 2393.68it/s, Materializing param=encoder.layer.5.attention.self.k
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  88%|8| 91/103 [00:00<00:00, 2389.02it/s, Materializing param=encoder.layer.5.attention.self.k
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  89%|8| 92/103 [00:00<00:00, 2408.23it/s, Materializing param=encoder.layer.5.attention.self.q
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  89%|8| 92/103 [00:00<00:00, 2404.32it/s, Materializing param=encoder.layer.5.attention.self.q
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  90%|9| 93/103 [00:00<00:00, 2424.89it/s, Materializing param=encoder.layer.5.attention.self.q
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  90%|9| 93/103 [00:00<00:00, 2421.10it/s, Materializing param=encoder.layer.5.attention.self.q
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  91%|9| 94/103 [00:00<00:00, 2440.90it/s, Materializing param=encoder.layer.5.attention.self.v
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  91%|9| 94/103 [00:00<00:00, 2433.91it/s, Materializing param=encoder.layer.5.attention.self.v
+2026-02-19 13:44:50,536 ERROR root: Loading weights:  92%|9| 95/103 [00:00<00:00, 2453.58it/s, Materializing param=encoder.layer.5.attention.self.v
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  92%|9| 95/103 [00:00<00:00, 2449.66it/s, Materializing param=encoder.layer.5.attention.self.v
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  93%|9| 96/103 [00:00<00:00, 2470.25it/s, Materializing param=encoder.layer.5.intermediate.den
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  93%|9| 96/103 [00:00<00:00, 2466.30it/s, Materializing param=encoder.layer.5.intermediate.den
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  94%|9| 97/103 [00:00<00:00, 2485.78it/s, Materializing param=encoder.layer.5.intermediate.den
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  94%|9| 97/103 [00:00<00:00, 2481.67it/s, Materializing param=encoder.layer.5.intermediate.den
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  95%|9| 98/103 [00:00<00:00, 2501.82it/s, Materializing param=encoder.layer.5.output.LayerNorm
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  95%|9| 98/103 [00:00<00:00, 2497.98it/s, Materializing param=encoder.layer.5.output.LayerNorm
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  96%|9| 99/103 [00:00<00:00, 2518.02it/s, Materializing param=encoder.layer.5.output.LayerNorm
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  96%|9| 99/103 [00:00<00:00, 2514.39it/s, Materializing param=encoder.layer.5.output.LayerNorm
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  97%|9| 100/103 [00:00<00:00, 2534.77it/s, Materializing param=encoder.layer.5.output.dense.bi
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  97%|9| 100/103 [00:00<00:00, 2531.14it/s, Materializing param=encoder.layer.5.output.dense.bi
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  98%|9| 101/103 [00:00<00:00, 2551.42it/s, Materializing param=encoder.layer.5.output.dense.we
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  98%|9| 101/103 [00:00<00:00, 2547.38it/s, Materializing param=encoder.layer.5.output.dense.we
+2026-02-19 13:44:50,537 ERROR root: Loading weights:  99%|#############8| 102/103 [00:00<00:00, 2567.29it/s, Materializing param=pooler.dense.bias]
+2026-02-19 13:44:50,538 ERROR root: Loading weights:  99%|#############8| 102/103 [00:00<00:00, 2563.53it/s, Materializing param=pooler.dense.bias]
+2026-02-19 13:44:50,538 ERROR root: Loading weights: 100%|############| 103/103 [00:00<00:00, 2583.32it/s, Materializing param=pooler.dense.weight]
+2026-02-19 13:44:50,538 ERROR root: Loading weights: 100%|############| 103/103 [00:00<00:00, 2579.49it/s, Materializing param=pooler.dense.weight]
+2026-02-19 13:44:50,538 ERROR root: Loading weights: 100%|############| 103/103 [00:00<00:00, 2573.04it/s, Materializing param=pooler.dense.weight]
+2026-02-19 13:44:50,541 ERROR root: [1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+2026-02-19 13:44:50,919 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:51,123 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:51,466 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:51,950 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:52,287 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-02-19 13:44:52,681 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-19 13:44:53,070 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 13:44:53,164 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-02-19 13:44:53,493 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-02-19 13:44:53,496 INFO modules.genai.embedding_service: Embedding model loaded successfully
+2026-02-19 13:44:54,558 INFO modules.genai.vector_store: Vector store initialized at C:\Users\sudhikut\OneDrive - AMDOCS\Documents\GenAI\GenAI Defect Portal\genai_defect_management\DefectPortal\knowledge_base\vector_store
+2026-02-19 13:44:54,558 INFO modules.genai.vector_store: Defects loaded: 5823
+2026-02-19 13:44:54,558 INFO modules.genai.vector_store: Documents loaded: 61
+2026-02-19 13:44:56,662 INFO modules.genai.llm_service: Ollama available with model: mistral
+2026-02-19 13:44:56,663 INFO modules.genai.enhanced_search: GenAI services initialized successfully
+2026-02-19 13:44:56,665 INFO modules.genai.defect_similarity: Using cached defect embeddings (5823 defects already indexed)
+2026-02-19 13:44:56,665 INFO modules.genai.document_search: Using cached document embeddings (61 chunks already indexed)
+2026-02-19 13:45:11,580 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 13:45:11,581 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 13:45:11,582 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 13:45:11,584 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 13:45:11,585 INFO root: Streamlit app started
+2026-02-19 13:45:11,610 INFO root:  Database connection established successfully
+2026-02-19 13:45:11,641 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 13:45:11,648 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 13:45:11,668 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 13:45:11,674 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 13:45:11,996 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 13:45:11,998 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 13:45:11,999 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 13:45:12,000 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 13:45:12,001 INFO root: Streamlit app started
+2026-02-19 13:45:12,029 INFO root:  Database connection established successfully
+2026-02-19 13:45:12,056 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 13:45:12,064 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 13:45:12,078 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 13:45:12,084 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 13:45:12,099 ERROR root: Batches:   0%|                                                                           | 0/1 [00:00<?, ?it/s]
+2026-02-19 13:45:12,249 ERROR root: Batches: 100%|###################################################################| 1/1 [00:00<00:00,  6.69it/s]
+2026-02-19 13:45:12,249 ERROR root: Batches: 100%|###################################################################| 1/1 [00:00<00:00,  6.67it/s]
+2026-02-19 13:45:12,308 ERROR root: Batches:   0%|                                                                           | 0/1 [00:00<?, ?it/s]
+2026-02-19 13:45:12,320 ERROR root: Batches: 100%|###################################################################| 1/1 [00:00<00:00, 90.57it/s]
+2026-02-19 13:45:44,354 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 13:45:44,354 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:15:56,373 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:15:56,376 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:15:56,378 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:15:56,380 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:15:56,391 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:15:56,394 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:15:56,396 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:15:56,398 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:16:00,370 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:16:00,372 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:16:00,374 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:16:00,377 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:16:00,378 INFO root: Streamlit app started
+2026-02-19 16:16:02,070 INFO root:  Database connection established successfully
+2026-02-19 16:16:02,191 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:16:02,206 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:16:02,239 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:16:02,251 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:16:02,459 INFO modules.genai.enhanced_search: Initializing GenAI services...
+2026-02-19 16:16:25,379 INFO modules.genai.embedding_service: Loading embedding model: all-MiniLM-L6-v2
+2026-02-19 16:16:25,383 INFO sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2026-02-19 16:16:25,384 INFO sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-19 16:16:27,312 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:27,404 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:27,731 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:27,822 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:28,128 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:28,234 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:28,592 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:28,679 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-02-19 16:16:28,991 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:29,087 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:29,411 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:29,511 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:29,841 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-02-19 16:16:30,173 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:30,177 ERROR root: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-02-19 16:16:30,176 WARNING huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-02-19 16:16:30,279 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:30,561 ERROR root: Loading weights:   0%|                                        | 0/103 [00:00<?, ?it/s]
+2026-02-19 16:16:30,562 ERROR root: Loading weights:   1%| | 1/103 [00:00<00:00, 5108.77it/s, Materializing param=embeddin
+2026-02-19 16:16:30,562 ERROR root: Loading weights:   1%| | 1/103 [00:00<00:00, 1346.92it/s, Materializing param=embeddin
+2026-02-19 16:16:30,564 ERROR root: Loading weights:   2%| | 2/103 [00:00<00:00, 982.85it/s, Materializing param=embedding
+2026-02-19 16:16:30,565 ERROR root: Loading weights:   2%| | 2/103 [00:00<00:00, 707.36it/s, Materializing param=embedding
+2026-02-19 16:16:30,566 ERROR root: Loading weights:   3%| | 3/103 [00:00<00:00, 690.42it/s, Materializing param=embedding
+2026-02-19 16:16:30,567 ERROR root: Loading weights:   3%| | 3/103 [00:00<00:00, 602.02it/s, Materializing param=embedding
+2026-02-19 16:16:30,569 ERROR root: Loading weights:   4%| | 4/103 [00:00<00:00, 527.14it/s, Materializing param=embedding
+2026-02-19 16:16:30,570 ERROR root: Loading weights:   4%| | 4/103 [00:00<00:00, 503.68it/s, Materializing param=embedding
+2026-02-19 16:16:30,571 ERROR root: Loading weights:   5%| | 5/103 [00:00<00:00, 547.37it/s, Materializing param=embedding
+2026-02-19 16:16:30,571 ERROR root: Loading weights:   5%| | 5/103 [00:00<00:00, 511.34it/s, Materializing param=embedding
+2026-02-19 16:16:30,573 ERROR root: Loading weights:   6%| | 6/103 [00:00<00:00, 556.08it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,573 ERROR root: Loading weights:   6%| | 6/103 [00:00<00:00, 528.01it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,575 ERROR root: Loading weights:   7%| | 7/103 [00:00<00:00, 508.70it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,576 ERROR root: Loading weights:   7%| | 7/103 [00:00<00:00, 488.86it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,577 ERROR root: Loading weights:   8%| | 8/103 [00:00<00:00, 506.57it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,578 ERROR root: Loading weights:   8%| | 8/103 [00:00<00:00, 491.09it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,580 ERROR root: Loading weights:   9%| | 9/103 [00:00<00:00, 501.60it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,580 ERROR root: Loading weights:   9%| | 9/103 [00:00<00:00, 489.17it/s, Materializing param=encoder.l
+2026-02-19 16:16:30,581 ERROR root: Loading weights:  10%| | 10/103 [00:00<00:00, 511.90it/s, Materializing param=encoder.
+2026-02-19 16:16:30,582 ERROR root: Loading weights:  10%| | 10/103 [00:00<00:00, 484.21it/s, Materializing param=encoder.
+2026-02-19 16:16:30,583 ERROR root: Loading weights:  11%|1| 11/103 [00:00<00:00, 506.58it/s, Materializing param=encoder.
+2026-02-19 16:16:30,584 ERROR root: Loading weights:  11%|1| 11/103 [00:00<00:00, 489.18it/s, Materializing param=encoder.
+2026-02-19 16:16:30,585 ERROR root: Loading weights:  12%|1| 12/103 [00:00<00:00, 518.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,585 ERROR root: Loading weights:  12%|1| 12/103 [00:00<00:00, 504.05it/s, Materializing param=encoder.
+2026-02-19 16:16:30,587 ERROR root: Loading weights:  13%|1| 13/103 [00:00<00:00, 521.40it/s, Materializing param=encoder.
+2026-02-19 16:16:30,587 ERROR root: Loading weights:  13%|1| 13/103 [00:00<00:00, 507.08it/s, Materializing param=encoder.
+2026-02-19 16:16:30,588 ERROR root: Loading weights:  14%|1| 14/103 [00:00<00:00, 531.19it/s, Materializing param=encoder.
+2026-02-19 16:16:30,589 ERROR root: Loading weights:  14%|1| 14/103 [00:00<00:00, 519.76it/s, Materializing param=encoder.
+2026-02-19 16:16:30,590 ERROR root: Loading weights:  15%|1| 15/103 [00:00<00:00, 534.46it/s, Materializing param=encoder.
+2026-02-19 16:16:30,590 ERROR root: Loading weights:  15%|1| 15/103 [00:00<00:00, 528.34it/s, Materializing param=encoder.
+2026-02-19 16:16:30,592 ERROR root: Loading weights:  16%|1| 16/103 [00:00<00:00, 523.09it/s, Materializing param=encoder.
+2026-02-19 16:16:30,593 ERROR root: Loading weights:  16%|1| 16/103 [00:00<00:00, 514.39it/s, Materializing param=encoder.
+2026-02-19 16:16:30,595 ERROR root: Loading weights:  17%|1| 17/103 [00:00<00:00, 518.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,595 ERROR root: Loading weights:  17%|1| 17/103 [00:00<00:00, 510.65it/s, Materializing param=encoder.
+2026-02-19 16:16:30,596 ERROR root: Loading weights:  17%|1| 18/103 [00:00<00:00, 528.81it/s, Materializing param=encoder.
+2026-02-19 16:16:30,596 ERROR root: Loading weights:  17%|1| 18/103 [00:00<00:00, 519.55it/s, Materializing param=encoder.
+2026-02-19 16:16:30,597 ERROR root: Loading weights:  18%|1| 19/103 [00:00<00:00, 532.43it/s, Materializing param=encoder.
+2026-02-19 16:16:30,598 ERROR root: Loading weights:  18%|1| 19/103 [00:00<00:00, 525.03it/s, Materializing param=encoder.
+2026-02-19 16:16:30,599 ERROR root: Loading weights:  19%|1| 20/103 [00:00<00:00, 538.63it/s, Materializing param=encoder.
+2026-02-19 16:16:30,599 ERROR root: Loading weights:  19%|1| 20/103 [00:00<00:00, 531.14it/s, Materializing param=encoder.
+2026-02-19 16:16:30,600 ERROR root: Loading weights:  20%|2| 21/103 [00:00<00:00, 546.40it/s, Materializing param=encoder.
+2026-02-19 16:16:30,601 ERROR root: Loading weights:  20%|2| 21/103 [00:00<00:00, 537.58it/s, Materializing param=encoder.
+2026-02-19 16:16:30,602 ERROR root: Loading weights:  21%|2| 22/103 [00:00<00:00, 544.99it/s, Materializing param=encoder.
+2026-02-19 16:16:30,602 ERROR root: Loading weights:  21%|2| 22/103 [00:00<00:00, 540.41it/s, Materializing param=encoder.
+2026-02-19 16:16:30,604 ERROR root: Loading weights:  22%|2| 23/103 [00:00<00:00, 544.04it/s, Materializing param=encoder.
+2026-02-19 16:16:30,604 ERROR root: Loading weights:  22%|2| 23/103 [00:00<00:00, 536.94it/s, Materializing param=encoder.
+2026-02-19 16:16:30,607 ERROR root: Loading weights:  23%|2| 24/103 [00:00<00:00, 533.74it/s, Materializing param=encoder.
+2026-02-19 16:16:30,607 ERROR root: Loading weights:  23%|2| 24/103 [00:00<00:00, 526.95it/s, Materializing param=encoder.
+2026-02-19 16:16:30,608 ERROR root: Loading weights:  24%|2| 25/103 [00:00<00:00, 540.55it/s, Materializing param=encoder.
+2026-02-19 16:16:30,609 ERROR root: Loading weights:  24%|2| 25/103 [00:00<00:00, 529.88it/s, Materializing param=encoder.
+2026-02-19 16:16:30,610 ERROR root: Loading weights:  25%|2| 26/103 [00:00<00:00, 542.13it/s, Materializing param=encoder.
+2026-02-19 16:16:30,610 ERROR root: Loading weights:  25%|2| 26/103 [00:00<00:00, 532.84it/s, Materializing param=encoder.
+2026-02-19 16:16:30,611 ERROR root: Loading weights:  26%|2| 27/103 [00:00<00:00, 544.77it/s, Materializing param=encoder.
+2026-02-19 16:16:30,613 ERROR root: Loading weights:  26%|2| 27/103 [00:00<00:00, 529.55it/s, Materializing param=encoder.
+2026-02-19 16:16:30,613 ERROR root: Loading weights:  27%|2| 28/103 [00:00<00:00, 541.96it/s, Materializing param=encoder.
+2026-02-19 16:16:30,614 ERROR root: Loading weights:  27%|2| 28/103 [00:00<00:00, 536.15it/s, Materializing param=encoder.
+2026-02-19 16:16:30,615 ERROR root: Loading weights:  28%|2| 29/103 [00:00<00:00, 540.49it/s, Materializing param=encoder.
+2026-02-19 16:16:30,616 ERROR root: Loading weights:  28%|2| 29/103 [00:00<00:00, 534.23it/s, Materializing param=encoder.
+2026-02-19 16:16:30,617 ERROR root: Loading weights:  29%|2| 30/103 [00:00<00:00, 544.10it/s, Materializing param=encoder.
+2026-02-19 16:16:30,617 ERROR root: Loading weights:  29%|2| 30/103 [00:00<00:00, 540.50it/s, Materializing param=encoder.
+2026-02-19 16:16:30,619 ERROR root: Loading weights:  30%|3| 31/103 [00:00<00:00, 545.54it/s, Materializing param=encoder.
+2026-02-19 16:16:30,620 ERROR root: Loading weights:  30%|3| 31/103 [00:00<00:00, 535.63it/s, Materializing param=encoder.
+2026-02-19 16:16:30,620 ERROR root: Loading weights:  31%|3| 32/103 [00:00<00:00, 547.31it/s, Materializing param=encoder.
+2026-02-19 16:16:30,620 ERROR root: Loading weights:  31%|3| 32/103 [00:00<00:00, 544.16it/s, Materializing param=encoder.
+2026-02-19 16:16:30,621 ERROR root: Loading weights:  32%|3| 33/103 [00:00<00:00, 555.65it/s, Materializing param=encoder.
+2026-02-19 16:16:30,621 ERROR root: Loading weights:  32%|3| 33/103 [00:00<00:00, 552.66it/s, Materializing param=encoder.
+2026-02-19 16:16:30,622 ERROR root: Loading weights:  33%|3| 34/103 [00:00<00:00, 565.94it/s, Materializing param=encoder.
+2026-02-19 16:16:30,622 ERROR root: Loading weights:  33%|3| 34/103 [00:00<00:00, 563.56it/s, Materializing param=encoder.
+2026-02-19 16:16:30,622 ERROR root: Loading weights:  34%|3| 35/103 [00:00<00:00, 576.78it/s, Materializing param=encoder.
+2026-02-19 16:16:30,623 ERROR root: Loading weights:  34%|3| 35/103 [00:00<00:00, 574.61it/s, Materializing param=encoder.
+2026-02-19 16:16:30,623 ERROR root: Loading weights:  35%|3| 36/103 [00:00<00:00, 588.00it/s, Materializing param=encoder.
+2026-02-19 16:16:30,623 ERROR root: Loading weights:  35%|3| 36/103 [00:00<00:00, 585.82it/s, Materializing param=encoder.
+2026-02-19 16:16:30,623 ERROR root: Loading weights:  36%|3| 37/103 [00:00<00:00, 598.99it/s, Materializing param=encoder.
+2026-02-19 16:16:30,624 ERROR root: Loading weights:  36%|3| 37/103 [00:00<00:00, 596.57it/s, Materializing param=encoder.
+2026-02-19 16:16:30,624 ERROR root: Loading weights:  37%|3| 38/103 [00:00<00:00, 609.08it/s, Materializing param=encoder.
+2026-02-19 16:16:30,624 ERROR root: Loading weights:  37%|3| 38/103 [00:00<00:00, 606.46it/s, Materializing param=encoder.
+2026-02-19 16:16:30,625 ERROR root: Loading weights:  38%|3| 39/103 [00:00<00:00, 618.98it/s, Materializing param=encoder.
+2026-02-19 16:16:30,625 ERROR root: Loading weights:  38%|3| 39/103 [00:00<00:00, 616.60it/s, Materializing param=encoder.
+2026-02-19 16:16:30,626 ERROR root: Loading weights:  39%|3| 40/103 [00:00<00:00, 620.84it/s, Materializing param=encoder.
+2026-02-19 16:16:30,627 ERROR root: Loading weights:  39%|3| 40/103 [00:00<00:00, 616.17it/s, Materializing param=encoder.
+2026-02-19 16:16:30,627 ERROR root: Loading weights:  40%|3| 41/103 [00:00<00:00, 626.30it/s, Materializing param=encoder.
+2026-02-19 16:16:30,628 ERROR root: Loading weights:  40%|3| 41/103 [00:00<00:00, 621.40it/s, Materializing param=encoder.
+2026-02-19 16:16:30,628 ERROR root: Loading weights:  41%|4| 42/103 [00:00<00:00, 630.80it/s, Materializing param=encoder.
+2026-02-19 16:16:30,629 ERROR root: Loading weights:  41%|4| 42/103 [00:00<00:00, 628.01it/s, Materializing param=encoder.
+2026-02-19 16:16:30,629 ERROR root: Loading weights:  42%|4| 43/103 [00:00<00:00, 639.16it/s, Materializing param=encoder.
+2026-02-19 16:16:30,629 ERROR root: Loading weights:  42%|4| 43/103 [00:00<00:00, 636.37it/s, Materializing param=encoder.
+2026-02-19 16:16:30,630 ERROR root: Loading weights:  43%|4| 44/103 [00:00<00:00, 647.39it/s, Materializing param=encoder.
+2026-02-19 16:16:30,630 ERROR root: Loading weights:  43%|4| 44/103 [00:00<00:00, 645.00it/s, Materializing param=encoder.
+2026-02-19 16:16:30,630 ERROR root: Loading weights:  44%|4| 45/103 [00:00<00:00, 656.11it/s, Materializing param=encoder.
+2026-02-19 16:16:30,630 ERROR root: Loading weights:  44%|4| 45/103 [00:00<00:00, 653.76it/s, Materializing param=encoder.
+2026-02-19 16:16:30,631 ERROR root: Loading weights:  45%|4| 46/103 [00:00<00:00, 665.15it/s, Materializing param=encoder.
+2026-02-19 16:16:30,631 ERROR root: Loading weights:  45%|4| 46/103 [00:00<00:00, 662.78it/s, Materializing param=encoder.
+2026-02-19 16:16:30,631 ERROR root: Loading weights:  46%|4| 47/103 [00:00<00:00, 673.54it/s, Materializing param=encoder.
+2026-02-19 16:16:30,632 ERROR root: Loading weights:  46%|4| 47/103 [00:00<00:00, 671.03it/s, Materializing param=encoder.
+2026-02-19 16:16:30,632 ERROR root: Loading weights:  47%|4| 48/103 [00:00<00:00, 682.01it/s, Materializing param=encoder.
+2026-02-19 16:16:30,632 ERROR root: Loading weights:  47%|4| 48/103 [00:00<00:00, 679.67it/s, Materializing param=encoder.
+2026-02-19 16:16:30,633 ERROR root: Loading weights:  48%|4| 49/103 [00:00<00:00, 690.39it/s, Materializing param=encoder.
+2026-02-19 16:16:30,633 ERROR root: Loading weights:  48%|4| 49/103 [00:00<00:00, 688.06it/s, Materializing param=encoder.
+2026-02-19 16:16:30,633 ERROR root: Loading weights:  49%|4| 50/103 [00:00<00:00, 698.81it/s, Materializing param=encoder.
+2026-02-19 16:16:30,633 ERROR root: Loading weights:  49%|4| 50/103 [00:00<00:00, 696.22it/s, Materializing param=encoder.
+2026-02-19 16:16:30,634 ERROR root: Loading weights:  50%|4| 51/103 [00:00<00:00, 706.68it/s, Materializing param=encoder.
+2026-02-19 16:16:30,634 ERROR root: Loading weights:  50%|4| 51/103 [00:00<00:00, 704.10it/s, Materializing param=encoder.
+2026-02-19 16:16:30,635 ERROR root: Loading weights:  50%|5| 52/103 [00:00<00:00, 713.53it/s, Materializing param=encoder.
+2026-02-19 16:16:30,635 ERROR root: Loading weights:  50%|5| 52/103 [00:00<00:00, 710.80it/s, Materializing param=encoder.
+2026-02-19 16:16:30,635 ERROR root: Loading weights:  51%|5| 53/103 [00:00<00:00, 720.74it/s, Materializing param=encoder.
+2026-02-19 16:16:30,635 ERROR root: Loading weights:  51%|5| 53/103 [00:00<00:00, 718.06it/s, Materializing param=encoder.
+2026-02-19 16:16:30,636 ERROR root: Loading weights:  52%|5| 54/103 [00:00<00:00, 728.17it/s, Materializing param=encoder.
+2026-02-19 16:16:30,636 ERROR root: Loading weights:  52%|5| 54/103 [00:00<00:00, 725.02it/s, Materializing param=encoder.
+2026-02-19 16:16:30,637 ERROR root: Loading weights:  53%|5| 55/103 [00:00<00:00, 733.51it/s, Materializing param=encoder.
+2026-02-19 16:16:30,637 ERROR root: Loading weights:  53%|5| 55/103 [00:00<00:00, 730.92it/s, Materializing param=encoder.
+2026-02-19 16:16:30,637 ERROR root: Loading weights:  54%|5| 56/103 [00:00<00:00, 741.04it/s, Materializing param=encoder.
+2026-02-19 16:16:30,637 ERROR root: Loading weights:  54%|5| 56/103 [00:00<00:00, 738.90it/s, Materializing param=encoder.
+2026-02-19 16:16:30,638 ERROR root: Loading weights:  55%|5| 57/103 [00:00<00:00, 749.01it/s, Materializing param=encoder.
+2026-02-19 16:16:30,638 ERROR root: Loading weights:  55%|5| 57/103 [00:00<00:00, 746.42it/s, Materializing param=encoder.
+2026-02-19 16:16:30,638 ERROR root: Loading weights:  56%|5| 58/103 [00:00<00:00, 755.90it/s, Materializing param=encoder.
+2026-02-19 16:16:30,639 ERROR root: Loading weights:  56%|5| 58/103 [00:00<00:00, 753.80it/s, Materializing param=encoder.
+2026-02-19 16:16:30,639 ERROR root: Loading weights:  57%|5| 59/103 [00:00<00:00, 763.37it/s, Materializing param=encoder.
+2026-02-19 16:16:30,639 ERROR root: Loading weights:  57%|5| 59/103 [00:00<00:00, 760.61it/s, Materializing param=encoder.
+2026-02-19 16:16:30,640 ERROR root: Loading weights:  58%|5| 60/103 [00:00<00:00, 770.22it/s, Materializing param=encoder.
+2026-02-19 16:16:30,640 ERROR root: Loading weights:  58%|5| 60/103 [00:00<00:00, 767.74it/s, Materializing param=encoder.
+2026-02-19 16:16:30,641 ERROR root: Loading weights:  59%|5| 61/103 [00:00<00:00, 776.06it/s, Materializing param=encoder.
+2026-02-19 16:16:30,641 ERROR root: Loading weights:  59%|5| 61/103 [00:00<00:00, 767.13it/s, Materializing param=encoder.
+2026-02-19 16:16:30,642 ERROR root: Loading weights:  60%|6| 62/103 [00:00<00:00, 770.72it/s, Materializing param=encoder.
+2026-02-19 16:16:30,643 ERROR root: Loading weights:  60%|6| 62/103 [00:00<00:00, 766.51it/s, Materializing param=encoder.
+2026-02-19 16:16:30,643 ERROR root: Loading weights:  61%|6| 63/103 [00:00<00:00, 774.74it/s, Materializing param=encoder.
+2026-02-19 16:16:30,643 ERROR root: Loading weights:  61%|6| 63/103 [00:00<00:00, 772.13it/s, Materializing param=encoder.
+2026-02-19 16:16:30,644 ERROR root: Loading weights:  62%|6| 64/103 [00:00<00:00, 780.95it/s, Materializing param=encoder.
+2026-02-19 16:16:30,644 ERROR root: Loading weights:  62%|6| 64/103 [00:00<00:00, 778.46it/s, Materializing param=encoder.
+2026-02-19 16:16:30,644 ERROR root: Loading weights:  63%|6| 65/103 [00:00<00:00, 787.20it/s, Materializing param=encoder.
+2026-02-19 16:16:30,644 ERROR root: Loading weights:  63%|6| 65/103 [00:00<00:00, 784.99it/s, Materializing param=encoder.
+2026-02-19 16:16:30,645 ERROR root: Loading weights:  64%|6| 66/103 [00:00<00:00, 793.96it/s, Materializing param=encoder.
+2026-02-19 16:16:30,645 ERROR root: Loading weights:  64%|6| 66/103 [00:00<00:00, 791.59it/s, Materializing param=encoder.
+2026-02-19 16:16:30,645 ERROR root: Loading weights:  65%|6| 67/103 [00:00<00:00, 800.35it/s, Materializing param=encoder.
+2026-02-19 16:16:30,646 ERROR root: Loading weights:  65%|6| 67/103 [00:00<00:00, 797.39it/s, Materializing param=encoder.
+2026-02-19 16:16:30,646 ERROR root: Loading weights:  66%|6| 68/103 [00:00<00:00, 805.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,646 ERROR root: Loading weights:  66%|6| 68/103 [00:00<00:00, 803.07it/s, Materializing param=encoder.
+2026-02-19 16:16:30,647 ERROR root: Loading weights:  67%|6| 69/103 [00:00<00:00, 811.72it/s, Materializing param=encoder.
+2026-02-19 16:16:30,647 ERROR root: Loading weights:  67%|6| 69/103 [00:00<00:00, 809.47it/s, Materializing param=encoder.
+2026-02-19 16:16:30,647 ERROR root: Loading weights:  68%|6| 70/103 [00:00<00:00, 818.26it/s, Materializing param=encoder.
+2026-02-19 16:16:30,647 ERROR root: Loading weights:  68%|6| 70/103 [00:00<00:00, 816.15it/s, Materializing param=encoder.
+2026-02-19 16:16:30,648 ERROR root: Loading weights:  69%|6| 71/103 [00:00<00:00, 824.72it/s, Materializing param=encoder.
+2026-02-19 16:16:30,648 ERROR root: Loading weights:  69%|6| 71/103 [00:00<00:00, 822.60it/s, Materializing param=encoder.
+2026-02-19 16:16:30,648 ERROR root: Loading weights:  70%|6| 72/103 [00:00<00:00, 830.45it/s, Materializing param=encoder.
+2026-02-19 16:16:30,649 ERROR root: Loading weights:  70%|6| 72/103 [00:00<00:00, 827.49it/s, Materializing param=encoder.
+2026-02-19 16:16:30,649 ERROR root: Loading weights:  71%|7| 73/103 [00:00<00:00, 835.75it/s, Materializing param=encoder.
+2026-02-19 16:16:30,649 ERROR root: Loading weights:  71%|7| 73/103 [00:00<00:00, 833.62it/s, Materializing param=encoder.
+2026-02-19 16:16:30,650 ERROR root: Loading weights:  72%|7| 74/103 [00:00<00:00, 841.90it/s, Materializing param=encoder.
+2026-02-19 16:16:30,650 ERROR root: Loading weights:  72%|7| 74/103 [00:00<00:00, 839.72it/s, Materializing param=encoder.
+2026-02-19 16:16:30,650 ERROR root: Loading weights:  73%|7| 75/103 [00:00<00:00, 848.00it/s, Materializing param=encoder.
+2026-02-19 16:16:30,650 ERROR root: Loading weights:  73%|7| 75/103 [00:00<00:00, 845.84it/s, Materializing param=encoder.
+2026-02-19 16:16:30,651 ERROR root: Loading weights:  74%|7| 76/103 [00:00<00:00, 854.03it/s, Materializing param=encoder.
+2026-02-19 16:16:30,651 ERROR root: Loading weights:  74%|7| 76/103 [00:00<00:00, 851.53it/s, Materializing param=encoder.
+2026-02-19 16:16:30,651 ERROR root: Loading weights:  75%|7| 77/103 [00:00<00:00, 858.31it/s, Materializing param=encoder.
+2026-02-19 16:16:30,652 ERROR root: Loading weights:  75%|7| 77/103 [00:00<00:00, 855.67it/s, Materializing param=encoder.
+2026-02-19 16:16:30,652 ERROR root: Loading weights:  76%|7| 78/103 [00:00<00:00, 863.45it/s, Materializing param=encoder.
+2026-02-19 16:16:30,652 ERROR root: Loading weights:  76%|7| 78/103 [00:00<00:00, 861.11it/s, Materializing param=encoder.
+2026-02-19 16:16:30,653 ERROR root: Loading weights:  77%|7| 79/103 [00:00<00:00, 868.74it/s, Materializing param=encoder.
+2026-02-19 16:16:30,653 ERROR root: Loading weights:  77%|7| 79/103 [00:00<00:00, 866.48it/s, Materializing param=encoder.
+2026-02-19 16:16:30,653 ERROR root: Loading weights:  78%|7| 80/103 [00:00<00:00, 874.03it/s, Materializing param=encoder.
+2026-02-19 16:16:30,653 ERROR root: Loading weights:  78%|7| 80/103 [00:00<00:00, 871.74it/s, Materializing param=encoder.
+2026-02-19 16:16:30,654 ERROR root: Loading weights:  79%|7| 81/103 [00:00<00:00, 879.51it/s, Materializing param=encoder.
+2026-02-19 16:16:30,654 ERROR root: Loading weights:  79%|7| 81/103 [00:00<00:00, 877.34it/s, Materializing param=encoder.
+2026-02-19 16:16:30,654 ERROR root: Loading weights:  80%|7| 82/103 [00:00<00:00, 885.04it/s, Materializing param=encoder.
+2026-02-19 16:16:30,655 ERROR root: Loading weights:  80%|7| 82/103 [00:00<00:00, 882.73it/s, Materializing param=encoder.
+2026-02-19 16:16:30,655 ERROR root: Loading weights:  81%|8| 83/103 [00:00<00:00, 890.28it/s, Materializing param=encoder.
+2026-02-19 16:16:30,655 ERROR root: Loading weights:  81%|8| 83/103 [00:00<00:00, 888.21it/s, Materializing param=encoder.
+2026-02-19 16:16:30,655 ERROR root: Loading weights:  82%|8| 84/103 [00:00<00:00, 896.03it/s, Materializing param=encoder.
+2026-02-19 16:16:30,656 ERROR root: Loading weights:  82%|8| 84/103 [00:00<00:00, 893.95it/s, Materializing param=encoder.
+2026-02-19 16:16:30,656 ERROR root: Loading weights:  83%|8| 85/103 [00:00<00:00, 901.54it/s, Materializing param=encoder.
+2026-02-19 16:16:30,656 ERROR root: Loading weights:  83%|8| 85/103 [00:00<00:00, 899.47it/s, Materializing param=encoder.
+2026-02-19 16:16:30,657 ERROR root: Loading weights:  83%|8| 86/103 [00:00<00:00, 905.33it/s, Materializing param=encoder.
+2026-02-19 16:16:30,657 ERROR root: Loading weights:  83%|8| 86/103 [00:00<00:00, 898.20it/s, Materializing param=encoder.
+2026-02-19 16:16:30,658 ERROR root: Loading weights:  84%|8| 87/103 [00:00<00:00, 903.24it/s, Materializing param=encoder.
+2026-02-19 16:16:30,658 ERROR root: Loading weights:  84%|8| 87/103 [00:00<00:00, 900.54it/s, Materializing param=encoder.
+2026-02-19 16:16:30,659 ERROR root: Loading weights:  85%|8| 88/103 [00:00<00:00, 907.07it/s, Materializing param=encoder.
+2026-02-19 16:16:30,659 ERROR root: Loading weights:  85%|8| 88/103 [00:00<00:00, 904.35it/s, Materializing param=encoder.
+2026-02-19 16:16:30,659 ERROR root: Loading weights:  86%|8| 89/103 [00:00<00:00, 910.86it/s, Materializing param=encoder.
+2026-02-19 16:16:30,660 ERROR root: Loading weights:  86%|8| 89/103 [00:00<00:00, 908.43it/s, Materializing param=encoder.
+2026-02-19 16:16:30,660 ERROR root: Loading weights:  87%|8| 90/103 [00:00<00:00, 914.91it/s, Materializing param=encoder.
+2026-02-19 16:16:30,660 ERROR root: Loading weights:  87%|8| 90/103 [00:00<00:00, 912.56it/s, Materializing param=encoder.
+2026-02-19 16:16:30,661 ERROR root: Loading weights:  88%|8| 91/103 [00:00<00:00, 919.64it/s, Materializing param=encoder.
+2026-02-19 16:16:30,661 ERROR root: Loading weights:  88%|8| 91/103 [00:00<00:00, 917.64it/s, Materializing param=encoder.
+2026-02-19 16:16:30,661 ERROR root: Loading weights:  89%|8| 92/103 [00:00<00:00, 924.96it/s, Materializing param=encoder.
+2026-02-19 16:16:30,661 ERROR root: Loading weights:  89%|8| 92/103 [00:00<00:00, 922.99it/s, Materializing param=encoder.
+2026-02-19 16:16:30,662 ERROR root: Loading weights:  90%|9| 93/103 [00:00<00:00, 930.24it/s, Materializing param=encoder.
+2026-02-19 16:16:30,662 ERROR root: Loading weights:  90%|9| 93/103 [00:00<00:00, 928.16it/s, Materializing param=encoder.
+2026-02-19 16:16:30,662 ERROR root: Loading weights:  91%|9| 94/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,662 ERROR root: Loading weights:  91%|9| 94/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,663 ERROR root: Loading weights:  91%|9| 94/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,663 ERROR root: Loading weights:  92%|9| 95/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,663 ERROR root: Loading weights:  92%|9| 95/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,664 ERROR root: Loading weights:  93%|9| 96/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,664 ERROR root: Loading weights:  93%|9| 96/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,664 ERROR root: Loading weights:  94%|9| 97/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,664 ERROR root: Loading weights:  94%|9| 97/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,665 ERROR root: Loading weights:  95%|9| 98/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,665 ERROR root: Loading weights:  95%|9| 98/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,665 ERROR root: Loading weights:  96%|9| 99/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,665 ERROR root: Loading weights:  96%|9| 99/103 [00:00<00:00, 935.32it/s, Materializing param=encoder.
+2026-02-19 16:16:30,666 ERROR root: Loading weights:  97%|9| 100/103 [00:00<00:00, 935.32it/s, Materializing param=encoder
+2026-02-19 16:16:30,666 ERROR root: Loading weights:  97%|9| 100/103 [00:00<00:00, 935.32it/s, Materializing param=encoder
+2026-02-19 16:16:30,666 ERROR root: Loading weights:  98%|9| 101/103 [00:00<00:00, 935.32it/s, Materializing param=encoder
+2026-02-19 16:16:30,666 ERROR root: Loading weights:  98%|9| 101/103 [00:00<00:00, 935.32it/s, Materializing param=encoder
+2026-02-19 16:16:30,667 ERROR root: Loading weights:  99%|9| 102/103 [00:00<00:00, 935.32it/s, Materializing param=pooler.
+2026-02-19 16:16:30,667 ERROR root: Loading weights:  99%|9| 102/103 [00:00<00:00, 935.32it/s, Materializing param=pooler.
+2026-02-19 16:16:30,668 ERROR root: Loading weights: 100%|#| 103/103 [00:00<00:00, 935.32it/s, Materializing param=pooler.
+2026-02-19 16:16:30,668 ERROR root: Loading weights: 100%|#| 103/103 [00:00<00:00, 935.32it/s, Materializing param=pooler.
+2026-02-19 16:16:30,668 ERROR root: Loading weights: 100%|#| 103/103 [00:00<00:00, 967.59it/s, Materializing param=pooler.
+2026-02-19 16:16:30,676 ERROR root: [1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+2026-02-19 16:16:30,994 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:31,095 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:31,406 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:31,506 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:31,837 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-02-19 16:16:32,162 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-19 16:16:32,766 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:16:32,864 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-02-19 16:16:33,226 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-02-19 16:16:33,231 INFO modules.genai.embedding_service: Embedding model loaded successfully
+2026-02-19 16:16:34,749 INFO modules.genai.vector_store: Vector store initialized at C:\Users\sudhikut\OneDrive - AMDOCS\Documents\GenAI\GenAI Defect Portal\genai_defect_management\DefectPortal\knowledge_base\vector_store
+2026-02-19 16:16:34,749 INFO modules.genai.vector_store: Defects loaded: 5823
+2026-02-19 16:16:34,749 INFO modules.genai.vector_store: Documents loaded: 54
+2026-02-19 16:16:36,903 INFO modules.genai.llm_service: Ollama available with model: mistral
+2026-02-19 16:16:36,904 INFO modules.genai.enhanced_search: GenAI services initialized successfully
+2026-02-19 16:16:36,912 INFO modules.genai.defect_similarity: Using cached defect embeddings (5823 defects already indexed)
+2026-02-19 16:16:36,912 INFO modules.genai.document_search: Using cached document embeddings (54 chunks already indexed)
+2026-02-19 16:17:18,496 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:17:18,499 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:17:18,501 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:17:18,505 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:17:18,507 INFO root: Streamlit app started
+2026-02-19 16:17:19,118 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:17:19,119 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:17:19,121 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:17:19,123 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:17:19,124 INFO root: Streamlit app started
+2026-02-19 16:17:19,176 INFO root:  Database connection established successfully
+2026-02-19 16:17:19,238 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:17:19,252 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:17:19,285 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:17:19,295 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:17:19,315 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:17:19,501 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00,  5.38it/s]
+2026-02-19 16:17:19,501 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00,  5.38it/s]
+2026-02-19 16:17:19,554 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:17:19,569 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 66.47it/s]
+2026-02-19 16:17:51,634 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:17:51,634 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:46:23,195 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:46:23,196 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:46:23,196 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:46:23,197 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:46:23,202 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:46:23,202 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:46:23,203 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:46:23,204 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:46:23,208 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:46:23,208 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:46:23,209 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:46:23,210 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:46:23,214 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:46:23,215 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:46:23,215 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:46:23,216 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:46:23,217 INFO root: Streamlit app started
+2026-02-19 16:46:23,300 INFO root:  Database connection established successfully
+2026-02-19 16:46:23,323 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:46:23,329 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:46:23,340 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:46:23,344 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:46:23,375 INFO modules.genai.enhanced_search: Initializing GenAI services...
+2026-02-19 16:46:23,375 INFO modules.genai.embedding_service: Loading embedding model: all-MiniLM-L6-v2
+2026-02-19 16:46:23,380 INFO sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2026-02-19 16:46:23,380 INFO sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-02-19 16:46:24,081 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:24,170 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:24,479 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:24,567 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:24,886 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:24,968 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:25,267 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:25,346 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-02-19 16:46:25,661 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:26,039 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:26,337 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:26,419 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:26,723 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-02-19 16:46:27,014 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:27,101 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:27,163 ERROR root: Loading weights:   0%|                                        | 0/103 [00:00<?, ?it/s]
+2026-02-19 16:46:27,163 ERROR root: Loading weights:   1%| | 1/103 [00:00<00:00, 39199.10it/s, Materializing param=embeddi
+2026-02-19 16:46:27,163 ERROR root: Loading weights:   1%| | 1/103 [00:00<00:00, 2884.67it/s, Materializing param=embeddin
+2026-02-19 16:46:27,164 ERROR root: Loading weights:   2%| | 2/103 [00:00<00:00, 3426.72it/s, Materializing param=embeddin
+2026-02-19 16:46:27,164 ERROR root: Loading weights:   2%| | 2/103 [00:00<00:00, 2821.60it/s, Materializing param=embeddin
+2026-02-19 16:46:27,164 ERROR root: Loading weights:   3%| | 3/103 [00:00<00:00, 2689.23it/s, Materializing param=embeddin
+2026-02-19 16:46:27,165 ERROR root: Loading weights:   3%| | 3/103 [00:00<00:00, 2154.98it/s, Materializing param=embeddin
+2026-02-19 16:46:27,165 ERROR root: Loading weights:   4%| | 4/103 [00:00<00:00, 2120.48it/s, Materializing param=embeddin
+2026-02-19 16:46:27,165 ERROR root: Loading weights:   4%| | 4/103 [00:00<00:00, 1945.41it/s, Materializing param=embeddin
+2026-02-19 16:46:27,166 ERROR root: Loading weights:   5%| | 5/103 [00:00<00:00, 2078.24it/s, Materializing param=embeddin
+2026-02-19 16:46:27,166 ERROR root: Loading weights:   5%| | 5/103 [00:00<00:00, 1922.41it/s, Materializing param=embeddin
+2026-02-19 16:46:27,166 ERROR root: Loading weights:   6%| | 6/103 [00:00<00:00, 1806.59it/s, Materializing param=encoder.
+2026-02-19 16:46:27,167 ERROR root: Loading weights:   6%| | 6/103 [00:00<00:00, 1690.12it/s, Materializing param=encoder.
+2026-02-19 16:46:27,167 ERROR root: Loading weights:   7%| | 7/103 [00:00<00:00, 1756.20it/s, Materializing param=encoder.
+2026-02-19 16:46:27,167 ERROR root: Loading weights:   7%| | 7/103 [00:00<00:00, 1615.50it/s, Materializing param=encoder.
+2026-02-19 16:46:27,168 ERROR root: Loading weights:   8%| | 8/103 [00:00<00:00, 1623.18it/s, Materializing param=encoder.
+2026-02-19 16:46:27,168 ERROR root: Loading weights:   8%| | 8/103 [00:00<00:00, 1509.29it/s, Materializing param=encoder.
+2026-02-19 16:46:27,169 ERROR root: Loading weights:   9%| | 9/103 [00:00<00:00, 1589.09it/s, Materializing param=encoder.
+2026-02-19 16:46:27,169 ERROR root: Loading weights:   9%| | 9/103 [00:00<00:00, 1512.73it/s, Materializing param=encoder.
+2026-02-19 16:46:27,169 ERROR root: Loading weights:  10%| | 10/103 [00:00<00:00, 1611.77it/s, Materializing param=encoder
+2026-02-19 16:46:27,169 ERROR root: Loading weights:  10%| | 10/103 [00:00<00:00, 1575.09it/s, Materializing param=encoder
+2026-02-19 16:46:27,170 ERROR root: Loading weights:  11%|1| 11/103 [00:00<00:00, 1652.25it/s, Materializing param=encoder
+2026-02-19 16:46:27,170 ERROR root: Loading weights:  11%|1| 11/103 [00:00<00:00, 1611.73it/s, Materializing param=encoder
+2026-02-19 16:46:27,170 ERROR root: Loading weights:  12%|1| 12/103 [00:00<00:00, 1696.38it/s, Materializing param=encoder
+2026-02-19 16:46:27,170 ERROR root: Loading weights:  12%|1| 12/103 [00:00<00:00, 1646.82it/s, Materializing param=encoder
+2026-02-19 16:46:27,171 ERROR root: Loading weights:  13%|1| 13/103 [00:00<00:00, 1698.89it/s, Materializing param=encoder
+2026-02-19 16:46:27,171 ERROR root: Loading weights:  13%|1| 13/103 [00:00<00:00, 1653.00it/s, Materializing param=encoder
+2026-02-19 16:46:27,171 ERROR root: Loading weights:  14%|1| 14/103 [00:00<00:00, 1719.68it/s, Materializing param=encoder
+2026-02-19 16:46:27,171 ERROR root: Loading weights:  14%|1| 14/103 [00:00<00:00, 1701.44it/s, Materializing param=encoder
+2026-02-19 16:46:27,172 ERROR root: Loading weights:  15%|1| 15/103 [00:00<00:00, 1777.60it/s, Materializing param=encoder
+2026-02-19 16:46:27,172 ERROR root: Loading weights:  15%|1| 15/103 [00:00<00:00, 1752.74it/s, Materializing param=encoder
+2026-02-19 16:46:27,172 ERROR root: Loading weights:  16%|1| 16/103 [00:00<00:00, 1840.87it/s, Materializing param=encoder
+2026-02-19 16:46:27,172 ERROR root: Loading weights:  16%|1| 16/103 [00:00<00:00, 1812.19it/s, Materializing param=encoder
+2026-02-19 16:46:27,172 ERROR root: Loading weights:  17%|1| 17/103 [00:00<00:00, 1852.85it/s, Materializing param=encoder
+2026-02-19 16:46:27,173 ERROR root: Loading weights:  17%|1| 17/103 [00:00<00:00, 1806.06it/s, Materializing param=encoder
+2026-02-19 16:46:27,173 ERROR root: Loading weights:  17%|1| 18/103 [00:00<00:00, 1876.41it/s, Materializing param=encoder
+2026-02-19 16:46:27,173 ERROR root: Loading weights:  17%|1| 18/103 [00:00<00:00, 1848.57it/s, Materializing param=encoder
+2026-02-19 16:46:27,173 ERROR root: Loading weights:  18%|1| 19/103 [00:00<00:00, 1867.02it/s, Materializing param=encoder
+2026-02-19 16:46:27,173 ERROR root: Loading weights:  18%|1| 19/103 [00:00<00:00, 1843.10it/s, Materializing param=encoder
+2026-02-19 16:46:27,174 ERROR root: Loading weights:  19%|1| 20/103 [00:00<00:00, 1878.92it/s, Materializing param=encoder
+2026-02-19 16:46:27,174 ERROR root: Loading weights:  19%|1| 20/103 [00:00<00:00, 1856.95it/s, Materializing param=encoder
+2026-02-19 16:46:27,174 ERROR root: Loading weights:  20%|2| 21/103 [00:00<00:00, 1889.53it/s, Materializing param=encoder
+2026-02-19 16:46:27,174 ERROR root: Loading weights:  20%|2| 21/103 [00:00<00:00, 1869.75it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  21%|2| 22/103 [00:00<00:00, 1915.21it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  21%|2| 22/103 [00:00<00:00, 1896.90it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  22%|2| 23/103 [00:00<00:00, 1939.43it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  22%|2| 23/103 [00:00<00:00, 1927.80it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  23%|2| 24/103 [00:00<00:00, 1991.20it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  23%|2| 24/103 [00:00<00:00, 1980.31it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  24%|2| 25/103 [00:00<00:00, 2038.25it/s, Materializing param=encoder
+2026-02-19 16:46:27,175 ERROR root: Loading weights:  24%|2| 25/103 [00:00<00:00, 2023.07it/s, Materializing param=encoder
+2026-02-19 16:46:27,176 ERROR root: Loading weights:  25%|2| 26/103 [00:00<00:00, 2086.00it/s, Materializing param=encoder
+2026-02-19 16:46:27,176 ERROR root: Loading weights:  25%|2| 26/103 [00:00<00:00, 2051.70it/s, Materializing param=encoder
+2026-02-19 16:46:27,176 ERROR root: Loading weights:  26%|2| 27/103 [00:00<00:00, 2069.03it/s, Materializing param=encoder
+2026-02-19 16:46:27,176 ERROR root: Loading weights:  26%|2| 27/103 [00:00<00:00, 2045.78it/s, Materializing param=encoder
+2026-02-19 16:46:27,176 ERROR root: Loading weights:  27%|2| 28/103 [00:00<00:00, 2091.81it/s, Materializing param=encoder
+2026-02-19 16:46:27,177 ERROR root: Loading weights:  27%|2| 28/103 [00:00<00:00, 2073.05it/s, Materializing param=encoder
+2026-02-19 16:46:27,177 ERROR root: Loading weights:  28%|2| 29/103 [00:00<00:00, 2114.40it/s, Materializing param=encoder
+2026-02-19 16:46:27,177 ERROR root: Loading weights:  28%|2| 29/103 [00:00<00:00, 2065.53it/s, Materializing param=encoder
+2026-02-19 16:46:27,177 ERROR root: Loading weights:  29%|2| 30/103 [00:00<00:00, 2099.71it/s, Materializing param=encoder
+2026-02-19 16:46:27,177 ERROR root: Loading weights:  29%|2| 30/103 [00:00<00:00, 2088.14it/s, Materializing param=encoder
+2026-02-19 16:46:27,178 ERROR root: Loading weights:  30%|3| 31/103 [00:00<00:00, 2141.89it/s, Materializing param=encoder
+2026-02-19 16:46:27,178 ERROR root: Loading weights:  30%|3| 31/103 [00:00<00:00, 2118.61it/s, Materializing param=encoder
+2026-02-19 16:46:27,178 ERROR root: Loading weights:  31%|3| 32/103 [00:00<00:00, 2166.20it/s, Materializing param=encoder
+2026-02-19 16:46:27,178 ERROR root: Loading weights:  31%|3| 32/103 [00:00<00:00, 2156.63it/s, Materializing param=encoder
+2026-02-19 16:46:27,178 ERROR root: Loading weights:  32%|3| 33/103 [00:00<00:00, 2209.61it/s, Materializing param=encoder
+2026-02-19 16:46:27,178 ERROR root: Loading weights:  32%|3| 33/103 [00:00<00:00, 2200.61it/s, Materializing param=encoder
+2026-02-19 16:46:27,178 ERROR root: Loading weights:  33%|3| 34/103 [00:00<00:00, 2224.30it/s, Materializing param=encoder
+2026-02-19 16:46:27,179 ERROR root: Loading weights:  33%|3| 34/103 [00:00<00:00, 2203.71it/s, Materializing param=encoder
+2026-02-19 16:46:27,179 ERROR root: Loading weights:  34%|3| 35/103 [00:00<00:00, 2216.53it/s, Materializing param=encoder
+2026-02-19 16:46:27,179 ERROR root: Loading weights:  34%|3| 35/103 [00:00<00:00, 2190.47it/s, Materializing param=encoder
+2026-02-19 16:46:27,179 ERROR root: Loading weights:  35%|3| 36/103 [00:00<00:00, 2223.92it/s, Materializing param=encoder
+2026-02-19 16:46:27,179 ERROR root: Loading weights:  35%|3| 36/103 [00:00<00:00, 2214.23it/s, Materializing param=encoder
+2026-02-19 16:46:27,179 ERROR root: Loading weights:  36%|3| 37/103 [00:00<00:00, 2261.48it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  36%|3| 37/103 [00:00<00:00, 2253.04it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  37%|3| 38/103 [00:00<00:00, 2290.95it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  37%|3| 38/103 [00:00<00:00, 2277.88it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  38%|3| 39/103 [00:00<00:00, 2323.45it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  38%|3| 39/103 [00:00<00:00, 2315.00it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  39%|3| 40/103 [00:00<00:00, 2362.92it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  39%|3| 40/103 [00:00<00:00, 2355.13it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  40%|3| 41/103 [00:00<00:00, 2402.77it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  40%|3| 41/103 [00:00<00:00, 2394.88it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  41%|4| 42/103 [00:00<00:00, 2442.27it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  41%|4| 42/103 [00:00<00:00, 2434.57it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  42%|4| 43/103 [00:00<00:00, 2481.29it/s, Materializing param=encoder
+2026-02-19 16:46:27,180 ERROR root: Loading weights:  42%|4| 43/103 [00:00<00:00, 2473.33it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  43%|4| 44/103 [00:00<00:00, 2519.65it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  43%|4| 44/103 [00:00<00:00, 2511.63it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  44%|4| 45/103 [00:00<00:00, 2557.47it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  44%|4| 45/103 [00:00<00:00, 2549.25it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  45%|4| 46/103 [00:00<00:00, 2594.33it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  45%|4| 46/103 [00:00<00:00, 2584.98it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  46%|4| 47/103 [00:00<00:00, 2629.10it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  46%|4| 47/103 [00:00<00:00, 2620.74it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  47%|4| 48/103 [00:00<00:00, 2664.85it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  47%|4| 48/103 [00:00<00:00, 2656.41it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  48%|4| 49/103 [00:00<00:00, 2699.96it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  48%|4| 49/103 [00:00<00:00, 2691.76it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  49%|4| 50/103 [00:00<00:00, 2735.19it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  49%|4| 50/103 [00:00<00:00, 2727.08it/s, Materializing param=encoder
+2026-02-19 16:46:27,181 ERROR root: Loading weights:  50%|4| 51/103 [00:00<00:00, 2769.95it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  50%|4| 51/103 [00:00<00:00, 2761.58it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  50%|5| 52/103 [00:00<00:00, 2804.22it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  50%|5| 52/103 [00:00<00:00, 2795.95it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  51%|5| 53/103 [00:00<00:00, 2838.15it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  51%|5| 53/103 [00:00<00:00, 2829.77it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  52%|5| 54/103 [00:00<00:00, 2856.83it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  52%|5| 54/103 [00:00<00:00, 2845.42it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  53%|5| 55/103 [00:00<00:00, 2877.76it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  53%|5| 55/103 [00:00<00:00, 2868.20it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  54%|5| 56/103 [00:00<00:00, 2899.87it/s, Materializing param=encoder
+2026-02-19 16:46:27,182 ERROR root: Loading weights:  54%|5| 56/103 [00:00<00:00, 2890.42it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  55%|5| 57/103 [00:00<00:00, 2929.38it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  55%|5| 57/103 [00:00<00:00, 2920.90it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  56%|5| 58/103 [00:00<00:00, 2960.24it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  56%|5| 58/103 [00:00<00:00, 2951.98it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  57%|5| 59/103 [00:00<00:00, 2991.12it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  57%|5| 59/103 [00:00<00:00, 2982.93it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  58%|5| 60/103 [00:00<00:00, 3021.94it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  58%|5| 60/103 [00:00<00:00, 3000.65it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  59%|5| 61/103 [00:00<00:00, 3031.61it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  59%|5| 61/103 [00:00<00:00, 3022.30it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  60%|6| 62/103 [00:00<00:00, 3059.05it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  60%|6| 62/103 [00:00<00:00, 3050.19it/s, Materializing param=encoder
+2026-02-19 16:46:27,183 ERROR root: Loading weights:  61%|6| 63/103 [00:00<00:00, 3087.22it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  61%|6| 63/103 [00:00<00:00, 3078.30it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  62%|6| 64/103 [00:00<00:00, 3115.40it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  62%|6| 64/103 [00:00<00:00, 3106.89it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  63%|6| 65/103 [00:00<00:00, 3143.68it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  63%|6| 65/103 [00:00<00:00, 3135.22it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  64%|6| 66/103 [00:00<00:00, 3140.38it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  64%|6| 66/103 [00:00<00:00, 3120.80it/s, Materializing param=encoder
+2026-02-19 16:46:27,184 ERROR root: Loading weights:  65%|6| 67/103 [00:00<00:00, 3142.08it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  65%|6| 67/103 [00:00<00:00, 3125.93it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  66%|6| 68/103 [00:00<00:00, 3150.82it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  66%|6| 68/103 [00:00<00:00, 3136.00it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  67%|6| 69/103 [00:00<00:00, 3157.19it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  67%|6| 69/103 [00:00<00:00, 3140.54it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  68%|6| 70/103 [00:00<00:00, 3165.89it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  68%|6| 70/103 [00:00<00:00, 3151.24it/s, Materializing param=encoder
+2026-02-19 16:46:27,185 ERROR root: Loading weights:  69%|6| 71/103 [00:00<00:00, 3174.96it/s, Materializing param=encoder
+2026-02-19 16:46:27,186 ERROR root: Loading weights:  69%|6| 71/103 [00:00<00:00, 3160.61it/s, Materializing param=encoder
+2026-02-19 16:46:27,186 ERROR root: Loading weights:  70%|6| 72/103 [00:00<00:00, 3183.20it/s, Materializing param=encoder
+2026-02-19 16:46:27,186 ERROR root: Loading weights:  70%|6| 72/103 [00:00<00:00, 3168.37it/s, Materializing param=encoder
+2026-02-19 16:46:27,186 ERROR root: Loading weights:  71%|7| 73/103 [00:00<00:00, 3187.06it/s, Materializing param=encoder
+2026-02-19 16:46:27,186 ERROR root: Loading weights:  71%|7| 73/103 [00:00<00:00, 3170.43it/s, Materializing param=encoder
+2026-02-19 16:46:27,186 ERROR root: Loading weights:  72%|7| 74/103 [00:00<00:00, 3191.42it/s, Materializing param=encoder
+2026-02-19 16:46:27,186 ERROR root: Loading weights:  72%|7| 74/103 [00:00<00:00, 3178.15it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  73%|7| 75/103 [00:00<00:00, 3202.02it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  73%|7| 75/103 [00:00<00:00, 3188.78it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  74%|7| 76/103 [00:00<00:00, 3212.67it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  74%|7| 76/103 [00:00<00:00, 3199.61it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  75%|7| 77/103 [00:00<00:00, 3217.45it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  75%|7| 77/103 [00:00<00:00, 3202.74it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  76%|7| 78/103 [00:00<00:00, 3224.48it/s, Materializing param=encoder
+2026-02-19 16:46:27,187 ERROR root: Loading weights:  76%|7| 78/103 [00:00<00:00, 3209.08it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  77%|7| 79/103 [00:00<00:00, 3230.29it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  77%|7| 79/103 [00:00<00:00, 3216.55it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  78%|7| 80/103 [00:00<00:00, 3238.56it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  78%|7| 80/103 [00:00<00:00, 3223.10it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  79%|7| 81/103 [00:00<00:00, 3243.98it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  79%|7| 81/103 [00:00<00:00, 3231.33it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  80%|7| 82/103 [00:00<00:00, 3253.43it/s, Materializing param=encoder
+2026-02-19 16:46:27,188 ERROR root: Loading weights:  80%|7| 82/103 [00:00<00:00, 3240.89it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  81%|8| 83/103 [00:00<00:00, 3262.28it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  81%|8| 83/103 [00:00<00:00, 3249.73it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  82%|8| 84/103 [00:00<00:00, 3271.84it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  82%|8| 84/103 [00:00<00:00, 3256.24it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  83%|8| 85/103 [00:00<00:00, 3273.73it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  83%|8| 85/103 [00:00<00:00, 3261.21it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  83%|8| 86/103 [00:00<00:00, 3282.35it/s, Materializing param=encoder
+2026-02-19 16:46:27,189 ERROR root: Loading weights:  83%|8| 86/103 [00:00<00:00, 3269.11it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  84%|8| 87/103 [00:00<00:00, 3288.41it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  84%|8| 87/103 [00:00<00:00, 3275.01it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  85%|8| 88/103 [00:00<00:00, 3293.79it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  85%|8| 88/103 [00:00<00:00, 3279.22it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  86%|8| 89/103 [00:00<00:00, 3298.57it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  86%|8| 89/103 [00:00<00:00, 3286.67it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  87%|8| 90/103 [00:00<00:00, 3306.39it/s, Materializing param=encoder
+2026-02-19 16:46:27,190 ERROR root: Loading weights:  87%|8| 90/103 [00:00<00:00, 3294.76it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  88%|8| 91/103 [00:00<00:00, 3314.79it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  88%|8| 91/103 [00:00<00:00, 3303.20it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  89%|8| 92/103 [00:00<00:00, 3323.11it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  89%|8| 92/103 [00:00<00:00, 3309.20it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  90%|9| 93/103 [00:00<00:00, 3327.22it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  90%|9| 93/103 [00:00<00:00, 3315.40it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  91%|9| 94/103 [00:00<00:00, 3334.61it/s, Materializing param=encoder
+2026-02-19 16:46:27,191 ERROR root: Loading weights:  91%|9| 94/103 [00:00<00:00, 3323.31it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  92%|9| 95/103 [00:00<00:00, 3342.78it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  92%|9| 95/103 [00:00<00:00, 3331.46it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  93%|9| 96/103 [00:00<00:00, 3350.47it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  93%|9| 96/103 [00:00<00:00, 3339.00it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  94%|9| 97/103 [00:00<00:00, 3354.56it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  94%|9| 97/103 [00:00<00:00, 3343.31it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  95%|9| 98/103 [00:00<00:00, 3362.33it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  95%|9| 98/103 [00:00<00:00, 3351.45it/s, Materializing param=encoder
+2026-02-19 16:46:27,192 ERROR root: Loading weights:  96%|9| 99/103 [00:00<00:00, 3370.04it/s, Materializing param=encoder
+2026-02-19 16:46:27,193 ERROR root: Loading weights:  96%|9| 99/103 [00:00<00:00, 3359.16it/s, Materializing param=encoder
+2026-02-19 16:46:27,193 ERROR root: Loading weights:  97%|9| 100/103 [00:00<00:00, 3377.90it/s, Materializing param=encode
+2026-02-19 16:46:27,193 ERROR root: Loading weights:  97%|9| 100/103 [00:00<00:00, 3367.21it/s, Materializing param=encode
+2026-02-19 16:46:27,193 ERROR root: Loading weights:  98%|9| 101/103 [00:00<00:00, 3382.61it/s, Materializing param=encode
+2026-02-19 16:46:27,193 ERROR root: Loading weights:  98%|9| 101/103 [00:00<00:00, 3371.41it/s, Materializing param=encode
+2026-02-19 16:46:27,193 ERROR root: Loading weights:  99%|9| 102/103 [00:00<00:00, 3389.61it/s, Materializing param=pooler
+2026-02-19 16:46:27,193 ERROR root: Loading weights:  99%|9| 102/103 [00:00<00:00, 3379.32it/s, Materializing param=pooler
+2026-02-19 16:46:27,193 ERROR root: Loading weights: 100%|#| 103/103 [00:00<00:00, 3397.93it/s, Materializing param=pooler
+2026-02-19 16:46:27,194 ERROR root: Loading weights: 100%|#| 103/103 [00:00<00:00, 3387.70it/s, Materializing param=pooler
+2026-02-19 16:46:27,194 ERROR root: Loading weights: 100%|#| 103/103 [00:00<00:00, 3371.86it/s, Materializing param=pooler
+2026-02-19 16:46:27,196 ERROR root: [1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+2026-02-19 16:46:27,495 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:27,582 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:27,885 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:27,967 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:28,274 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-02-19 16:46:28,566 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-19 16:46:28,953 INFO httpx: HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 16:46:29,038 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-02-19 16:46:29,380 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-02-19 16:46:29,383 INFO modules.genai.embedding_service: Embedding model loaded successfully
+2026-02-19 16:46:30,285 INFO modules.genai.vector_store: Vector store initialized at C:\Users\sudhikut\OneDrive - AMDOCS\Documents\GenAI\GenAI Defect Portal\genai_defect_management\DefectPortal\knowledge_base\vector_store
+2026-02-19 16:46:30,285 INFO modules.genai.vector_store: Defects loaded: 5823
+2026-02-19 16:46:30,285 INFO modules.genai.vector_store: Documents loaded: 54
+2026-02-19 16:46:32,369 INFO modules.genai.llm_service: Ollama available with model: mistral
+2026-02-19 16:46:32,369 INFO modules.genai.enhanced_search: GenAI services initialized successfully
+2026-02-19 16:46:32,371 INFO modules.genai.defect_similarity: Using cached defect embeddings (5823 defects already indexed)
+2026-02-19 16:46:32,372 INFO modules.genai.document_search: Using cached document embeddings (54 chunks already indexed)
+2026-02-19 16:48:25,112 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:48:25,114 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:48:25,115 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:48:25,117 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:48:25,119 INFO root: Streamlit app started
+2026-02-19 16:48:25,148 INFO root:  Database connection established successfully
+2026-02-19 16:48:25,174 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:48:25,175 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:48:25,177 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:48:25,179 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:48:25,180 INFO root: Streamlit app started
+2026-02-19 16:48:25,207 INFO root:  Database connection established successfully
+2026-02-19 16:48:25,220 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:48:25,233 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:48:25,580 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:48:25,588 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:48:25,602 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:48:25,608 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:48:25,621 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:48:25,648 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 38.03it/s]
+2026-02-19 16:48:25,815 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:48:25,825 ERROR root: Batches: 100%|#########################################| 1/1 [00:00<00:00, 107.70it/s]
+2026-02-19 16:48:57,878 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:48:57,879 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:50:26,763 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:50:26,766 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:50:26,768 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:50:26,772 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:50:26,773 INFO root: Streamlit app started
+2026-02-19 16:50:26,804 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:50:26,806 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:50:26,808 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:50:27,276 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:50:27,277 INFO root: Streamlit app started
+2026-02-19 16:50:27,366 INFO root:  Database connection established successfully
+2026-02-19 16:50:27,414 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:50:27,428 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:50:27,452 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:50:27,460 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:50:27,486 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:50:27,706 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00,  4.56it/s]
+2026-02-19 16:50:27,706 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00,  4.55it/s]
+2026-02-19 16:50:27,790 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:50:27,811 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 47.12it/s]
+2026-02-19 16:50:59,864 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:50:59,864 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:54:06,751 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:54:06,753 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:54:06,754 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:54:06,756 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:54:06,758 INFO root: Streamlit app started
+2026-02-19 16:54:06,781 INFO root:  Database connection established successfully
+2026-02-19 16:54:06,811 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:54:06,820 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:54:06,834 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:54:06,840 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:54:07,228 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:54:07,229 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:54:07,231 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:54:07,232 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:54:07,233 INFO root: Streamlit app started
+2026-02-19 16:54:07,255 INFO root:  Database connection established successfully
+2026-02-19 16:54:07,286 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:54:07,294 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:54:07,310 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:54:07,317 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:54:07,330 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:54:07,350 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 53.75it/s]
+2026-02-19 16:54:07,503 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:54:07,513 ERROR root: Batches: 100%|#########################################| 1/1 [00:00<00:00, 101.93it/s]
+2026-02-19 16:54:39,558 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:54:39,558 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:55:34,773 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:55:34,775 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:55:34,777 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:55:34,778 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:55:34,780 INFO root: Streamlit app started
+2026-02-19 16:55:34,804 INFO root:  Database connection established successfully
+2026-02-19 16:55:34,835 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:55:34,842 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 16:55:34,846 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 16:55:34,849 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:55:35,254 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 16:55:35,257 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 16:55:35,258 INFO root: Streamlit app started
+2026-02-19 16:55:35,285 INFO root:  Database connection established successfully
+2026-02-19 16:55:35,313 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 16:55:35,323 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 16:55:35,340 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 16:55:35,347 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 16:55:35,362 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:55:35,382 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 50.74it/s]
+2026-02-19 16:55:35,560 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 16:55:35,574 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 72.82it/s]
+2026-02-19 16:56:07,615 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 16:56:07,631 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 17:03:02,373 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 17:03:02,374 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 17:03:02,376 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 17:03:02,379 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 17:03:02,380 INFO root: Streamlit app started
+2026-02-19 17:03:02,408 INFO root:  Database connection established successfully
+2026-02-19 17:03:02,449 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 17:03:02,464 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 17:03:02,859 INFO root: Deleted old log folder: logs\2026-02-11
+2026-02-19 17:03:02,860 INFO root: Deleted old log folder: logs\2026-02-16
+2026-02-19 17:03:02,861 INFO root: Deleted old log folder: logs\2026-02-17
+2026-02-19 17:03:02,863 INFO root: Logger initialized, writing to logs\2026-02-19\app.log
+2026-02-19 17:03:02,864 INFO root: Streamlit app started
+2026-02-19 17:03:02,886 INFO root:  Database connection established successfully
+2026-02-19 17:03:02,911 INFO root: Loaded ACC defects: 362 rows
+2026-02-19 17:03:02,920 INFO root: Loaded SIT defects: 463 rows
+2026-02-19 17:03:02,937 INFO root: Displayed ACC defects table with 362 rows
+2026-02-19 17:03:02,943 INFO root: Displayed SIT defects table with 463 rows
+2026-02-19 17:03:02,956 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 17:03:02,975 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 56.38it/s]
+2026-02-19 17:03:03,164 ERROR root: Batches:   0%|                                                  | 0/1 [00:00<?, ?it/s]
+2026-02-19 17:03:03,176 ERROR root: Batches: 100%|##########################################| 1/1 [00:00<00:00, 91.18it/s]
+2026-02-19 17:03:35,239 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-19 17:03:35,239 ERROR modules.genai.llm_service: Ollama generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
